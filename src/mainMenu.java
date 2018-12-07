@@ -16,6 +16,7 @@ public class mainMenu {
             img = ImageIO.read(new File("res\\car.png"));
         } catch (IOException e) {
             System.out.println("image not found");
+            // hi
         }
     }
 
