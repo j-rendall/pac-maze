@@ -13,7 +13,7 @@ public class mainMenu {
 //        this.x = x;
 //        this.y = y;
         try {
-            img = ImageIO.read(new File("res\\car.png"));
+            img = ImageIO.read(new File("res\\pacmanlogo.png"));
         } catch (IOException e) {
             System.out.println("image not found");
         }
@@ -30,16 +30,19 @@ public class mainMenu {
     }
 
     public void paint(Graphics2D g2d) {
-        String title = "Pac-Maze";
+        String title = "Pa     Maze";
         Font stringFont1 = new Font( "Arial", Font.ITALIC, 80 );
 
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
 
+        g2d.drawImage(img, 250, 200, 100, 60, null);
         g2d.setFont(stringFont1);
-        g2d.setColor(Color.black);
-        g2d.drawString(title, 205, 255);
         g2d.setColor(Color.white);
-        g2d.drawString(title, 200, 250);
+        g2d.drawString(title, 150, 250);
+        g2d.setColor(Color.black);
+        g2d.drawString(title, 155, 255);
+
+       // g2d.drawRect();
     }
 }
