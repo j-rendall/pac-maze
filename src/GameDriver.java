@@ -8,7 +8,6 @@ public class GameDriver extends JPanel {
     private int xa = 100; //Horizontal speed
     private int ya = 50; //Vertical speed
     mainMenu mainMenu = new mainMenu();
-    //hi
 //    Building[] list = new Building[5];
 //    UFO ufo = new UFO(this, 50, 50, 0, 0);
 //    Car car = new Car(this, 0, 825, 5);
