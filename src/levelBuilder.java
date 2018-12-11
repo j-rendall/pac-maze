@@ -54,17 +54,7 @@ public class levelBuilder  {
 
 
     public void paint(Graphics2D g2d) {
-        String title = "Pac-Maze";
-        Font stringFont1 = new Font( "Arial", Font.ITALIC, 80 );
 
-        g2d.setColor(Color.decode("#0000ff"));
-        g2d.fillRect(0,0,5000, 5000);
-
-        g2d.setFont(stringFont1);
-        g2d.setColor(Color.black);
-        g2d.drawString(title, 205, 255);
-        g2d.setColor(Color.white);
-        g2d.drawString(title, 200, 250);
     }
 
 }
