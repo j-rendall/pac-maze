@@ -53,7 +53,8 @@ public class levelBuilder  {
 
 
 
-    public void paint(Graphics2D g2d) {
+    public void paint(Graphics2D g2d)
+    {
 
     }
 
