@@ -51,26 +51,4 @@ public class levelBuilder  {
             // hi
         }
     }
-
-
-
-
-    public static void LevelPaint(Graphics2D g2d)
-    {
-        int x = 0;
-        int y = 50;
-        for (int rows =0; rows<=15; rows++) {
-
-            for (int columns = 0; columns <= 15; columns++)
-            {
-                if (new Level[rows][columns].equals("w"))
-                {
-                    g2d.fillRect(x,y,50,50);
-                    x = x + 50;
-                }
-                y = y + 50;
-                x=0;
-            }
-        }
-    }
 }
