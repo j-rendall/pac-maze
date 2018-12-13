@@ -1,3 +1,5 @@
+import editor.Level;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -49,13 +51,4 @@ public class levelBuilder  {
             // hi
         }
     }
-
-
-
-
-    public void paint(Graphics2D g2d)
-    {
-
-    }
-
 }
