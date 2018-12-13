@@ -15,7 +15,7 @@ public class LevelTest {
 
 
         try {
-            System.out.println(new Level("C:\\Users\\s201109649\\IdeaProjects\\pac-maze\\res\\level 1.txt").toString());
+            System.out.println(new Level("D:\\12th grade\\Coding\\Project Maze 1.1.1\\pac-maze\\res\\level 1.txt").toString());
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
