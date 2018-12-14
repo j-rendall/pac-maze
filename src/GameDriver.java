@@ -70,7 +70,7 @@ public class GameDriver extends JPanel {
         JFrame f = new JFrame("Project MAZE (Alpha 1.0)");
         GameDriver gd = new GameDriver();
         f.add(gd);
-        f.setSize(750,800);
+        f.setSize(750,900);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

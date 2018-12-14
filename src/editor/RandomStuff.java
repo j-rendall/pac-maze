@@ -4,20 +4,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.InputStream;
 import java.util.Random;
 
 public class RandomStuff extends JPanel {
     private Level level;
     private int levelX = 0;
-    private int levelY = 0;
+    private int levelY = 100;
     private int levelW = 50;
     private int levelH = 50;
 
     private int clickX = 0;
     private int clickY = 0;
 
-    public RandomStuff(String fn) throws Exception {
-        this.level = new Level(fn);
+    public RandomStuff(InputStream s) throws Exception {
+        this.level = new Level(s);
         this.addMouseListener(new MouseListener() {
             @Override public void mouseClicked(MouseEvent mouseEvent) {
                 clickX = mouseEvent.getX();
@@ -30,6 +31,7 @@ public class RandomStuff extends JPanel {
         });
     }
 
+    //print out mouse position in terms of block
     public void paint(Graphics g) {
         super.paint(g); //Clears the panel, for a fresh start
         Graphics2D g2d = (Graphics2D) g;
@@ -44,9 +46,11 @@ public class RandomStuff extends JPanel {
     public static void main(String[] args) throws InterruptedException {
         JFrame f = new JFrame("Project MAZE (Alpha 1.0)");
         try {
-            RandomStuff rs = new RandomStuff("D:\\12th grade\\Coding\\Project Maze 1.1.1\\pac-maze\\res\\level 1.txt");
+            int num =5;
+
+            RandomStuff rs = new RandomStuff(RandomStuff.class.getResourceAsStream("/level 1.txt"));
             f.add(rs);
-            f.setSize(750, 800);
+            f.setSize(750, 900);
             f.setVisible(true);
             f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
