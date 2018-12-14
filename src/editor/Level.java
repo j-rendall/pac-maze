@@ -1,9 +1,7 @@
 package editor;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.stream.Collectors;
 
 public class Level {
@@ -70,6 +68,15 @@ public class Level {
 
         FileReader f = new FileReader(filename);
         BufferedReader br = new BufferedReader(f);
+        lines = br.lines().filter(l -> l.trim().length() > 0).collect(Collectors.toList()).toArray(new String[]{});
+
+        this.loadFromLines(lines);
+    }
+
+    public Level(InputStream s) throws Exception {
+        String[] lines;
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(s));
         lines = br.lines().filter(l -> l.trim().length() > 0).collect(Collectors.toList()).toArray(new String[]{});
 
         this.loadFromLines(lines);
