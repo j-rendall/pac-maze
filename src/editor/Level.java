@@ -8,7 +8,7 @@ public class Level {
     public enum Cell {
         WALL("w", Color.decode("#000000")),
         SPACE("s", Color.decode("#ffffff")),
-        DOT("d", Color.decode("#dddddd")),
+        DOT("d", Color.decode("#35a3d6")),
         GHOST("g", Color.decode("#eeeeeee")),
         ENTRANCE("b", Color.decode("#0000ff")),
         EXIT("e", Color.decode("#ff0000"));
@@ -107,14 +107,22 @@ public class Level {
 
     // (x, y) is the place to start drawing the board
     // (cw, ch) is the cell size
+
     public void drawOn(Graphics2D g, int x, int y, int cw, int ch) {
+        Graphics2D g2d = (Graphics2D) g;
         int curX;
         int curY = ch;
         for (Cell[] row: this.cells) {
             curX = cw;
             for (Cell cell: row) {
                 cell.drawOn(g, x + curX - cw, y + curY - ch, cw, ch);
+                if (cell.letter == "d")
+                {
+                    g2d.setColor(Color.decode("#ffffff"));
+                    g2d.fillOval(x + curX - cw + 17, y + curY - ch + 17, 16, 16);
+                }
                 curX += cw;
+
             }
             curY += ch;
         }

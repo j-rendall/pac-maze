@@ -50,7 +50,7 @@ public class RandomStuff extends JPanel {
 
             RandomStuff rs = new RandomStuff(RandomStuff.class.getResourceAsStream("/level 1.txt"));
             f.add(rs);
-            f.setSize(750, 900);
+            f.setSize(766, 890);
             f.setVisible(true);
             f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
