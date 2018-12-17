@@ -9,12 +9,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class levelBuilder  {
+public class Move  {
 
     private BufferedImage img = null;
 
 
-    public levelBuilder()
+    public Move()
     {
         try {
             img = ImageIO.read(new File("res\\pacman.png"));
