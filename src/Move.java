@@ -1,3 +1,5 @@
+import editor.Level;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -7,12 +9,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class levelBuilder  {
+public class Move  {
 
     private BufferedImage img = null;
 
 
-    public levelBuilder()
+    public Move()
     {
         try {
             img = ImageIO.read(new File("res\\pacman.png"));
@@ -49,22 +51,4 @@ public class levelBuilder  {
             // hi
         }
     }
-
-
-
-
-    public void paint(Graphics2D g2d) {
-        String title = "Pac-Maze";
-        Font stringFont1 = new Font( "Arial", Font.ITALIC, 80 );
-
-        g2d.setColor(Color.decode("#0000ff"));
-        g2d.fillRect(0,0,5000, 5000);
-
-        g2d.setFont(stringFont1);
-        g2d.setColor(Color.black);
-        g2d.drawString(title, 205, 255);
-        g2d.setColor(Color.white);
-        g2d.drawString(title, 200, 250);
-    }
-
 }

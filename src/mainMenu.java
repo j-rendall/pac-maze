@@ -27,6 +27,13 @@ public class mainMenu {
         }
     }
 
+    public void mouseClicked(MouseEvent e) {
+        xa = 0;
+        ya = 0;
+        if (e.getMouseCode() == MouseEvent.VK_SPACE)        //check for accuracy once JDK is defined
+            beaming = false;
+    }
+
     public void move(int maxWidth) {
 //        // if the car hits the edge of the screen... reverse the x velocity
 //        if ((x + xa < -50) || (x + xa > cs.getWidth() + 50)) {
