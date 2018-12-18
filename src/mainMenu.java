@@ -14,12 +14,6 @@ public class mainMenu {
     private BufferedImage img = null;
 
     public mainMenu() {
-
-//        public void mouseClicked(MouseEvent mouseEvent) {
-//            clickX = mouseEvent.getX();
-//            clickY = mouseEvent.getY();
-//        }
-
         try {
             img = ImageIO.read(new File("res\\pacmanlogo.png"));
         } catch (IOException e) {
@@ -28,21 +22,17 @@ public class mainMenu {
     }
 
     public void mouseClicked(MouseEvent e) {
-        xa = 0;
-        ya = 0;
-        if (e.getMouseCode() == MouseEvent.VK_SPACE)        //check for accuracy once JDK is defined
-            beaming = false;
+        clickX = e.getX();
+        clickY = e.getY();
     }
 
-    public void move(int maxWidth) {
-//        // if the car hits the edge of the screen... reverse the x velocity
-//        if ((x + xa < -50) || (x + xa > cs.getWidth() + 50)) {
-//            xa *= -1;
-//            width *= -1;
-//        }
-//        //update x
-//        x = x + xa;
+    public boolean isPlay() {
+        if (clickX>250 && clickX<450 && clickY>400 && clickY<475) {
+            play = true;
+        }
+        return play;
     }
+
 
     public void paint(Graphics2D g2d) {
         String title = "Pa     Maze";

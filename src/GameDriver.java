@@ -20,8 +20,7 @@ public class GameDriver extends JPanel {
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
-                clickX = mouseEvent.getX();
-                clickY = mouseEvent.getY();
+                mainMenu.mouseClicked(mouseEvent);
             }
 
             @Override
@@ -52,7 +51,7 @@ public class GameDriver extends JPanel {
 
         mainMenu.paint(g2d);
 
-        if (mainMenu.play) {
+        if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
         }
             Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
