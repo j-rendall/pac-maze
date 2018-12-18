@@ -34,20 +34,6 @@ public class GameDriver extends JPanel {
         });
         setFocusable(true);
     }*/
-/*    private void move() {
-        if (x + xa < 0) //If the ball exceeds the left
-            xa = -1*xa; //go right
-        if (x + xa > getWidth() - 150) //If the ball exceeds the right
-            xa = -1*xa; //go left
-        if (y + ya < 25) //If the ball exceeds the top
-            ya = -1*ya; //go down
-        if (y + ya > 300 - 50) //If the ball exceeds the bottom
-            ya = -1*ya; //go up
-        x = x + xa; //Adjust the x and y coordinates
-        y = y + ya; //by the appropriate speeds
-
-        ufo.move();
-    }*/
 
     public void paint(Graphics g)
     {
