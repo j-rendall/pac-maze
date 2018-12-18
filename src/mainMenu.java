@@ -1,22 +1,29 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 public class mainMenu {
-    private int x = 0;
-    private int y = 0;
+    private int clickX = 0;
+    private int clickY = 0;
+    public boolean play = false;
+    public boolean intsruction = false;
     private BufferedImage img = null;
 
     public mainMenu() {
-//        this.x = x;
-//        this.y = y;
+
+//        public void mouseClicked(MouseEvent mouseEvent) {
+//            clickX = mouseEvent.getX();
+//            clickY = mouseEvent.getY();
+//        }
+
         try {
             img = ImageIO.read(new File("res\\pacmanlogo.png"));
         } catch (IOException e) {
             System.out.println("image not found");
-            // hi
         }
     }
 
