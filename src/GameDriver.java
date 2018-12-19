@@ -1,5 +1,7 @@
 import javax.swing.*;
-import java.awt.*;
+import java.awt.* ;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.InputStream;
@@ -14,9 +16,37 @@ public class GameDriver extends JPanel {
     mainMenu mainMenu = new mainMenu();
     private Level level;
 
+    public Level getLevel() {return level;}
+    public int getLevelX() {return levelX;}
+    public int getLevelY() {return levelY;}
+    public int getLevelW() {return levelW;}
+    public int getLevelH() {return levelH;}
+
 
     public GameDriver(InputStream s) throws Exception {
         this.level = new Level(s);
+        addKeyListener(new KeyListener() {
+
+            public void keyTyped(KeyEvent e) {
+            }
+
+            public void keyPressed(KeyEvent e) {
+                PacmanMove.WPressed(e);
+                PacmanMove.APressed(e);
+                PacmanMove.SPressed(e);
+                PacmanMove.DPressed(e);
+            }
+
+            public void keyReleased(KeyEvent e) {
+                PacmanMove.WReleased(e);
+                PacmanMove.AReleased(e);
+                PacmanMove.SReleased(e);
+                PacmanMove.DReleased(e);
+            }
+        });
+        setFocusable(true);
+
+
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
@@ -41,6 +71,9 @@ public class GameDriver extends JPanel {
             }
         });
         setFocusable(true);
+
+
+
     }
 
     public void paint(Graphics g)
@@ -56,7 +89,6 @@ public class GameDriver extends JPanel {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
         }
             Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
-            g2d.setColor(Color.GREEN);
             //g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
     }
 
@@ -80,5 +112,6 @@ public class GameDriver extends JPanel {
         catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+
     }
 }

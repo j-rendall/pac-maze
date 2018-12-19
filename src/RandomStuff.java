@@ -1,11 +1,8 @@
-package editor;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.InputStream;
-import java.util.Random;
 
 public class RandomStuff extends JPanel {
     private Level level;
