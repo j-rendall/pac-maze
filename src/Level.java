@@ -1,5 +1,3 @@
-package editor;
-
 import java.awt.*;
 import java.io.*;
 import java.util.stream.Collectors;
