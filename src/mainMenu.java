@@ -14,12 +14,6 @@ public class mainMenu {
     private BufferedImage img = null;
 
     public mainMenu() {
-
-//        public void mouseClicked(MouseEvent mouseEvent) {
-//            clickX = mouseEvent.getX();
-//            clickY = mouseEvent.getY();
-//        }
-
         try {
             img = ImageIO.read(new File("res\\pacmanlogo.png"));
         } catch (IOException e) {
@@ -38,6 +32,7 @@ public class mainMenu {
         }
         return play;
     }
+
 
     public void paint(Graphics2D g2d) {
         String title = "Pa     Maze";
