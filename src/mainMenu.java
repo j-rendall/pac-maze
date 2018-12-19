@@ -10,7 +10,7 @@ public class mainMenu {
     private int clickX = 0;
     private int clickY = 0;
     public boolean play = false;
-    public boolean intsruction = false;
+    public boolean settings = false;
     private BufferedImage img = null;
 
     public mainMenu() {
@@ -33,6 +33,12 @@ public class mainMenu {
         return play;
     }
 
+    public boolean isSettings() {
+        if (clickX>250 && clickX<450 && clickY>500 && clickY<550) {
+            settings = true;
+        }
+        return settings;
+    }
 
     public void paint(Graphics2D g2d) {
         String title = "Pa     Maze";
@@ -65,5 +71,21 @@ public class mainMenu {
         g2d.drawString(play, 260, 465);
         g2d.setFont(stringFont3);
         g2d.drawString(settings, 260, 540);
+    }
+
+    public void settingsPaint(Graphics2D g2d) {
+        String errormessage = "ERROR 404";
+        Font stringFont1 = new Font( "Arial", Font.BOLD, 100 );
+        String errormessage2 = "This Page Does Not Exist!";
+        Font stringfont2 = new Font("Arial", Font.PLAIN, 40);
+
+        g2d.setColor(Color.decode("#0000ff"));
+        g2d.fillRect(0,0,5000, 5000);
+
+        g2d.setFont(stringFont1);
+        g2d.setColor(Color.black);
+        g2d.drawString(errormessage, 100, 250);
+        g2d.setFont(stringfont2);
+        g2d.drawString(errormessage2, 100, 400);
     }
 }

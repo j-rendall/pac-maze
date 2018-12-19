@@ -1,5 +1,3 @@
-import editor.Level;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -18,7 +16,7 @@ public class GameDriver extends JPanel {
 
 
     public GameDriver(InputStream s) throws Exception {
-        this.level = new editor.Level(s);
+        this.level = new Level(s);
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
@@ -55,6 +53,9 @@ public class GameDriver extends JPanel {
 
         if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
+        }
+        if (mainMenu.isSettings()) {
+            mainMenu.settingsPaint(g2d);
         }
             Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
             g2d.setColor(Color.GREEN);
