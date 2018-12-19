@@ -33,11 +33,6 @@ public class RandomStuff extends JPanel {
         super.paint(g); //Clears the panel, for a fresh start
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
-
-        Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
-            g2d.setColor(Color.GREEN);
-            g2d.drawString(point.toString(), 100, 100);
     }
 
     public static void main(String[] args) throws InterruptedException {
