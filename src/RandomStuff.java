@@ -33,7 +33,6 @@ public class RandomStuff extends JPanel {
         super.paint(g); //Clears the panel, for a fresh start
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
     }
 
     public static void main(String[] args) throws InterruptedException {
