@@ -1,3 +1,5 @@
+import editor.Level;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -16,7 +18,7 @@ public class GameDriver extends JPanel {
 
 
     public GameDriver(InputStream s) throws Exception {
-        this.level = new Level(s);
+        this.level = new editor.Level(s);
         this.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
