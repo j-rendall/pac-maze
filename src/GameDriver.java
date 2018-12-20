@@ -72,9 +72,6 @@ public class GameDriver extends JPanel {
             }
         });
         setFocusable(true);
-
-
-
     }
 
     public void paint(Graphics g)
@@ -89,7 +86,11 @@ public class GameDriver extends JPanel {
         if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
         }
+        if (mainMenu.isSettings()) {
+            mainMenu.settingsPaint(g2d);
+        }
             Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
+            g2d.setColor(Color.GREEN);
             //g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
     }
 
@@ -113,6 +114,5 @@ public class GameDriver extends JPanel {
         catch (Exception ex) {
             throw new RuntimeException(ex);
         }
-
     }
 }
