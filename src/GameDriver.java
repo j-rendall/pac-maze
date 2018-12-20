@@ -1,5 +1,3 @@
-import editor.Level;
-
 import javax.swing.*;
 import java.awt.* ;
 import java.awt.event.KeyListener;
@@ -89,8 +87,15 @@ public class GameDriver extends JPanel {
         if (mainMenu.isSettings()) {
             mainMenu.settingsPaint(g2d);
         }
+        if (mainMenu.isInstructions()) {
+            mainMenu.instructionsPaint(g2d);
+        }
+        if (mainMenu.isExit()) {
+            System.exit(10);
+        }
+
             Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
-            g2d.setColor(Color.GREEN);
+            //g2d.setColor(Color.GREEN);
             //g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
     }
 

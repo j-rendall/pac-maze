@@ -146,25 +146,24 @@ public class PacmanMove  {
         }
 
         //W Up
-        if (direction == 1 && !activity && this.getLevel.getCellIndex(this.getLevelX, this.getLevelY, this.getLevelW, this.getLevelH, this.x, this.y))
-        {
-            y-=5;
-        }
-        //D Right
-        else if (direction == 2 && !activity)
-        {
-            x+=5;
-        }
-        //S Down
-        else if (direction == 3&& !activity)
-        {
-            y+=5;
-        }
-        //A left
-        else if (direction == 4 && !activity)
-        {
-            x-=5;
-        }
-
+//        if (direction == 1 && !activity && this.getLevel.getCellIndex(this.getLevelX, this.getLevelY, this.getLevelW, this.getLevelH, this.x, this.y))
+//        {
+//            y-=5;
+//        }
+//        //D Right
+//        else if (direction == 2 && !activity)
+//        {
+//            x+=5;
+//        }
+//        //S Down
+//        else if (direction == 3&& !activity)
+//        {
+//            y+=5;
+//        }
+//        //A left
+//        else if (direction == 4 && !activity)
+//        {
+//            x-=5;
+//        }
     }
 }
