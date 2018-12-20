@@ -110,6 +110,17 @@ public class Level {
         Graphics2D g2d = (Graphics2D) g;
         int curX;
         int curY = ch;
+        String menu = "MENU";
+        Font stringFont = new Font( "Arial", Font.BOLD, 30 );
+        g2d.setColor(Color.decode("#444444"));
+        g2d.fillRect(0,0,5000,5000);
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(30, 30, 100, 40);
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(25, 25, 100, 40);
+        g2d.setColor(Color.decode("#0000ff"));
+        g2d.setFont(stringFont);
+        g2d.drawString(menu, 30, 55);
         for (Cell[] row: this.cells) {
             curX = cw;
             for (Cell cell: row) {
