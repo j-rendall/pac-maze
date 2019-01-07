@@ -9,11 +9,11 @@ import java.io.IOException;
 public class mainMenu {
     private int clickX = 0;
     private int clickY = 0;
-    public boolean menu = true;
     public boolean play = false;
     public boolean settings = false;
     public boolean instructions = false;
     public boolean exit = false;
+    public boolean menu = true;
     private BufferedImage img = null;
 
     public mainMenu() {
@@ -30,11 +30,18 @@ public class mainMenu {
     }
 
     public boolean isMenu() {
-        if (clickX>25 && clickX<125 && clickY>25 && clickY<65) {
-            menu = true;
-            instructions = false;
-            settings = false;
-            play = false;
+        if (isPlay()) {
+            if (clickX > 23 && clickX < 90 && clickY > 20 && clickY < 45) {
+                menu = true;
+                play = false;
+            }
+        }
+        else if (isInstructions() || isSettings()) {
+            if (clickX > 25 && clickX < 135 && clickY > 25 && clickY < 65) {
+                menu = true;
+                instructions = false;
+                settings = false;
+            }
         }
         return menu;
     }
@@ -63,9 +70,15 @@ public class mainMenu {
     }
 
     public boolean isExit() {
-        if (clickX>615 && clickX<705 && clickY>770 && clickY<810) {
-            exit = true;
-            menu = false;
+        if (isMenu()) {
+            if (clickX > 615 && clickX < 705 && clickY > 770 && clickY < 810) {
+                exit = true;
+            }
+        }
+        if (isPlay()) {
+            if (clickX>23 && clickX<90 && clickY>60 && clickY<85) {
+                exit = true;
+            }
         }
         return exit;
     }
@@ -114,54 +127,54 @@ public class mainMenu {
     }
 
     public void settingsPaint(Graphics2D g2d) {
-        String menu = "MENU";
-        Font stringFont = new Font( "Arial", Font.BOLD, 30 );
         String errormessage = "ERROR 404";
         Font stringFont1 = new Font( "Arial", Font.BOLD, 100 );
         String errormessage2 = "This Page Does Not Exist!";
-        Font stringfont2 = new Font("Arial", Font.PLAIN, 40);
+        Font stringFont2 = new Font("Arial", Font.PLAIN, 40);
+
+        Font stringFont3 = new Font( "Arial", Font.PLAIN, 30 );
+        String menu = "MENU";
 
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
 
         g2d.setColor(Color.BLACK);
-        g2d.fillRect(30, 30, 100, 40);
+        g2d.fillRect(30, 30, 110, 40);
         g2d.setColor(Color.WHITE);
-        g2d.fillRect(25, 25, 100, 40);
-        g2d.setColor(Color.decode("#0000ff"));
-        g2d.setFont(stringFont);
-        g2d.drawString(menu, 30, 55);
+        g2d.fillRect(25, 25, 110, 40);
 
         g2d.setFont(stringFont1);
         g2d.setColor(Color.black);
         g2d.drawString(errormessage, 100, 250);
-        g2d.setFont(stringfont2);
+        g2d.setFont(stringFont2);
         g2d.drawString(errormessage2, 100, 400);
+        g2d.setFont(stringFont3);
+        g2d.drawString(menu, 35, 55);
     }
 
     public void instructionsPaint(Graphics2D g2d) {
-        String menu = "MENU";
-        Font stringFont = new Font( "Arial", Font.BOLD, 30 );
         String errormessage = "ERROR 404";
         Font stringFont1 = new Font( "Arial", Font.BOLD, 100 );
         String errormessage2 = "This Page Does Not Exist!";
-        Font stringfont2 = new Font("Arial", Font.PLAIN, 40);
+        Font stringFont2 = new Font("Arial", Font.PLAIN, 40);
+
+        Font stringFont3 = new Font( "Arial", Font.PLAIN, 30 );
+        String menu = "MENU";
 
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
 
         g2d.setColor(Color.BLACK);
-        g2d.fillRect(30, 30, 100, 40);
+        g2d.fillRect(30, 30, 110, 40);
         g2d.setColor(Color.WHITE);
-        g2d.fillRect(25, 25, 100, 40);
-        g2d.setColor(Color.decode("#0000ff"));
-        g2d.setFont(stringFont);
-        g2d.drawString(menu, 30, 55);
+        g2d.fillRect(25, 25, 110, 40);
 
         g2d.setFont(stringFont1);
         g2d.setColor(Color.black);
         g2d.drawString(errormessage, 100, 250);
-        g2d.setFont(stringfont2);
+        g2d.setFont(stringFont2);
         g2d.drawString(errormessage2, 100, 400);
+        g2d.setFont(stringFont3);
+        g2d.drawString(menu, 35, 55);
     }
 }

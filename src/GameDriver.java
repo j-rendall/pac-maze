@@ -82,7 +82,6 @@ public class GameDriver extends JPanel {
         if (mainMenu.isMenu()) {
             mainMenu.paint(g2d);
         }
-
         if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
         }
