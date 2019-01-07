@@ -79,8 +79,9 @@ public class GameDriver extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
-        mainMenu.paint(g2d);
-
+        if (mainMenu.isMenu()) {
+            mainMenu.paint(g2d);
+        }
         if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
         }

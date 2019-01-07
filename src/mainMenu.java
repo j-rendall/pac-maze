@@ -13,6 +13,7 @@ public class mainMenu {
     public boolean settings = false;
     public boolean instructions = false;
     public boolean exit = false;
+    public boolean menu = true;
     private BufferedImage img = null;
 
     public mainMenu() {
@@ -28,29 +29,56 @@ public class mainMenu {
         clickY = e.getY();
     }
 
+    public boolean isMenu() {
+        if (isPlay()) {
+            if (clickX > 23 && clickX < 90 && clickY > 20 && clickY < 45) {
+                menu = true;
+                play = false;
+            }
+        }
+        else if (isInstructions() || isSettings()) {
+            if (clickX > 25 && clickX < 135 && clickY > 25 && clickY < 65) {
+                menu = true;
+                instructions = false;
+                settings = false;
+            }
+        }
+        return menu;
+    }
+
     public boolean isPlay() {
-        if (clickX>260 && clickX<460 && clickY>400 && clickY<475) {
+        if (clickX > 260 && clickX < 460 && clickY > 400 && clickY < 475) {
             play = true;
+            menu = false;
         }
         return play;
     }
 
     public boolean isSettings() {
-        if (clickX>260 && clickX<460 && clickY>500 && clickY<550) {
+        if (clickX > 260 && clickX < 460 && clickY > 500 && clickY < 550) {
             settings = true;
+            menu = false;
         }
         return settings;
     }
     public boolean isInstructions() {
-        if (clickX>40 && clickX<280 && clickY>770 && clickY<810) {
+        if (clickX > 40 && clickX < 280 && clickY > 770 && clickY < 810) {
             instructions = true;
+            menu = false;
         }
         return instructions;
     }
 
     public boolean isExit() {
-        if (clickX>615 && clickX<705 && clickY>770 && clickY<810) {
-            exit = true;
+        if (isMenu()) {
+            if (clickX > 615 && clickX < 705 && clickY > 770 && clickY < 810) {
+                exit = true;
+            }
+        }
+        if (isPlay()) {
+            if (clickX>23 && clickX<90 && clickY>60 && clickY<85) {
+                exit = true;
+            }
         }
         return exit;
     }
@@ -102,31 +130,51 @@ public class mainMenu {
         String errormessage = "ERROR 404";
         Font stringFont1 = new Font( "Arial", Font.BOLD, 100 );
         String errormessage2 = "This Page Does Not Exist!";
-        Font stringfont2 = new Font("Arial", Font.PLAIN, 40);
+        Font stringFont2 = new Font("Arial", Font.PLAIN, 40);
+
+        Font stringFont3 = new Font( "Arial", Font.PLAIN, 30 );
+        String menu = "MENU";
 
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
 
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(30, 30, 110, 40);
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(25, 25, 110, 40);
+
         g2d.setFont(stringFont1);
         g2d.setColor(Color.black);
         g2d.drawString(errormessage, 100, 250);
-        g2d.setFont(stringfont2);
+        g2d.setFont(stringFont2);
         g2d.drawString(errormessage2, 100, 400);
+        g2d.setFont(stringFont3);
+        g2d.drawString(menu, 35, 55);
     }
 
     public void instructionsPaint(Graphics2D g2d) {
         String errormessage = "ERROR 404";
         Font stringFont1 = new Font( "Arial", Font.BOLD, 100 );
         String errormessage2 = "This Page Does Not Exist!";
-        Font stringfont2 = new Font("Arial", Font.PLAIN, 40);
+        Font stringFont2 = new Font("Arial", Font.PLAIN, 40);
+
+        Font stringFont3 = new Font( "Arial", Font.PLAIN, 30 );
+        String menu = "MENU";
 
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
 
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(30, 30, 110, 40);
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(25, 25, 110, 40);
+
         g2d.setFont(stringFont1);
         g2d.setColor(Color.black);
         g2d.drawString(errormessage, 100, 250);
-        g2d.setFont(stringfont2);
+        g2d.setFont(stringFont2);
         g2d.drawString(errormessage2, 100, 400);
+        g2d.setFont(stringFont3);
+        g2d.drawString(menu, 35, 55);
     }
 }
