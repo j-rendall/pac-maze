@@ -8,7 +8,6 @@ public class PacmanMove  {
 
     private int x;
     private int y;
-    private int xa;
     private static int direction;
 
     public int getX() {
@@ -22,11 +21,10 @@ public class PacmanMove  {
     private GameDriver gd;
     public static boolean getActivity() { return activity; }
 
-    public PacmanMove(int width, int height,int depth,int color,int x,int y, int xa,int direction,Boolean activity,GameDriver gd)
+    public PacmanMove(int x,int y,int direction,Boolean activity,GameDriver gd)
     {
         this.x = x;
         this.y = y;
-        this.xa = xa;
         this.direction=direction;
         this.activity=activity;
         this.gd = gd;
@@ -145,25 +143,28 @@ public class PacmanMove  {
             // hi
         }
 
+        //Level.Point point = this.getLevel().getCellIndex(this.x + 5, this.y +5, 766, 890, 0, 124);
+
+
         //W Up
-//        if (direction == 1 && !activity && this.getLevel.getCellIndex(this.getLevelX, this.getLevelY, this.getLevelW, this.getLevelH, this.x, this.y))
-//        {
-//            y-=5;
-//        }
-//        //D Right
-//        else if (direction == 2 && !activity)
-//        {
-//            x+=5;
-//        }
-//        //S Down
-//        else if (direction == 3&& !activity)
-//        {
-//            y+=5;
-//        }
-//        //A left
-//        else if (direction == 4 && !activity)
-//        {
-//            x-=5;
-//        }
+        if ((direction == 1) && !activity)
+        {
+            y-=5;
+        }
+        //D Right
+        else if (direction == 2 && !activity)
+        {
+            x+=5;
+        }
+        //S Down
+        else if (direction == 3&& !activity)
+        {
+            y+=5;
+        }
+        //A left
+        else if (direction == 4 && !activity)
+        {
+            x-=5;
+        }
     }
 }

@@ -148,15 +148,15 @@ public class Level {
     // (x, y) is the place to start drawing the board
     // (cw, ch) is the cell size
     // (cx, cy) is the screen coordinates to get whichever cell is under it
-    public Point getCellIndex(int x, int y, int cw, int ch, int cx, int cy) {
+    public Point getCellIndex(int x, int y, int width, int height, int cx, int cy) {
         if (cx-x <= 0 || cy-y <= 0) {
             // not on the board
             return new Point(0, 0);
         }
 
         int row, col;
-        row = (cx - x) / cw;
-        col = (cy - y) / ch;
+        row = (cx - x) / width;
+        col = (cy - y) / height;
         return new Point(row, col);
     }
 }

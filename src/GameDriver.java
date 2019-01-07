@@ -17,10 +17,7 @@ public class GameDriver extends JPanel {
     private Level level;
 
     public Level getLevel() {return level;}
-    public int getLevelX() {return levelX;}
-    public int getLevelY() {return levelY;}
-    public int getLevelW() {return levelW;}
-    public int getLevelH() {return levelH;}
+
 
 
     public GameDriver(InputStream s) throws Exception {
@@ -88,6 +85,7 @@ public class GameDriver extends JPanel {
         if (mainMenu.isSettings()) {
             mainMenu.settingsPaint(g2d);
         }
+      
         if (mainMenu.isInstructions()) {
             mainMenu.instructionsPaint(g2d);
         }
