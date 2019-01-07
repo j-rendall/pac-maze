@@ -15,12 +15,24 @@ public class mainMenu {
     public boolean exit = false;
     public boolean menu = true;
     private BufferedImage img = null;
+    private BufferedImage instructionsimg = null;
+    private BufferedImage settingsimg = null;
 
     public mainMenu() {
         try {
             img = ImageIO.read(new File("res\\pacmanlogo.png"));
         } catch (IOException e) {
-            System.out.println("image not found");
+            System.out.println("logo not found");
+        }
+        try {
+            instructionsimg = ImageIO.read(new File("res\\instructions.jpg"));
+        } catch (IOException e) {
+            System.out.println("instructions page not found");
+        }
+        try {
+            settingsimg = ImageIO.read(new File("res\\settings.jpg"));
+        } catch (IOException e) {
+            System.out.println("settings page not found");
         }
     }
 
@@ -37,7 +49,7 @@ public class mainMenu {
             }
         }
         else if (isInstructions() || isSettings()) {
-            if (clickX > 25 && clickX < 135 && clickY > 25 && clickY < 65) {
+            if (clickX > 0 && clickX < 70 && clickY > 0 && clickY < 70) {
                 menu = true;
                 instructions = false;
                 settings = false;
@@ -132,24 +144,16 @@ public class mainMenu {
         String errormessage2 = "This Page Does Not Exist!";
         Font stringFont2 = new Font("Arial", Font.PLAIN, 40);
 
-        Font stringFont3 = new Font( "Arial", Font.PLAIN, 30 );
-        String menu = "MENU";
-
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
-
-        g2d.setColor(Color.BLACK);
-        g2d.fillRect(30, 30, 110, 40);
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(25, 25, 110, 40);
 
         g2d.setFont(stringFont1);
         g2d.setColor(Color.black);
         g2d.drawString(errormessage, 100, 250);
         g2d.setFont(stringFont2);
         g2d.drawString(errormessage2, 100, 400);
-        g2d.setFont(stringFont3);
-        g2d.drawString(menu, 35, 55);
+
+        g2d.drawImage(settingsimg, 0, 0, 766, 890, null);
     }
 
     public void instructionsPaint(Graphics2D g2d) {
@@ -158,23 +162,15 @@ public class mainMenu {
         String errormessage2 = "This Page Does Not Exist!";
         Font stringFont2 = new Font("Arial", Font.PLAIN, 40);
 
-        Font stringFont3 = new Font( "Arial", Font.PLAIN, 30 );
-        String menu = "MENU";
-
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
-
-        g2d.setColor(Color.BLACK);
-        g2d.fillRect(30, 30, 110, 40);
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(25, 25, 110, 40);
 
         g2d.setFont(stringFont1);
         g2d.setColor(Color.black);
         g2d.drawString(errormessage, 100, 250);
         g2d.setFont(stringFont2);
         g2d.drawString(errormessage2, 100, 400);
-        g2d.setFont(stringFont3);
-        g2d.drawString(menu, 35, 55);
+
+        g2d.drawImage(instructionsimg, 0, 0, 766, 890, null);
     }
 }
