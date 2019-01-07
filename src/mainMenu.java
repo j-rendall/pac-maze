@@ -47,7 +47,7 @@ public class mainMenu {
     }
 
     public boolean isPlay() {
-        if (clickX > 260 && clickX < 460 && clickY > 400 && clickY < 475) {
+        if (clickX>260 && clickX<460 && clickY>400 && clickY<475) {
             play = true;
             menu = false;
         }
@@ -55,14 +55,14 @@ public class mainMenu {
     }
 
     public boolean isSettings() {
-        if (clickX > 260 && clickX < 460 && clickY > 500 && clickY < 550) {
+        if (clickX>260 && clickX<460 && clickY>500 && clickY<550) {
             settings = true;
             menu = false;
         }
         return settings;
     }
     public boolean isInstructions() {
-        if (clickX > 40 && clickX < 280 && clickY > 770 && clickY < 810) {
+        if (clickX>40 && clickX<280 && clickY>770 && clickY<810) {
             instructions = true;
             menu = false;
         }
