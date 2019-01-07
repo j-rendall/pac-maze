@@ -17,10 +17,7 @@ public class GameDriver extends JPanel {
     private Level level;
 
     public Level getLevel() {return level;}
-    public int getLevelX() {return levelX;}
-    public int getLevelY() {return levelY;}
-    public int getLevelW() {return levelW;}
-    public int getLevelH() {return levelH;}
+
 
 
     public GameDriver(InputStream s) throws Exception {
@@ -87,9 +84,9 @@ public class GameDriver extends JPanel {
         if (mainMenu.isSettings()) {
             mainMenu.settingsPaint(g2d);
         }
-            Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
+            Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH,this.clickX, this.clickY);
             g2d.setColor(Color.GREEN);
-            //g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
+            g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
     }
 
     public static void main(String[] args) throws InterruptedException {

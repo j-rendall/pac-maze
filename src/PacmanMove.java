@@ -106,7 +106,7 @@ public class PacmanMove  {
             activity = activity;
     }
 
-        public PacmanMove()
+    public PacmanMove()
     {
         try {
             img = ImageIO.read(new File("res\\pacman.png"));
@@ -143,8 +143,11 @@ public class PacmanMove  {
             // hi
         }
 
+        //Level.Point point = this.getLevel().getCellIndex(this.x + 5, this.y +5, 766, 890, 0, 124);
+
+
         //W Up
-        if (direction == 1 && !activity && this.getLevel.getCellIndex(this.getLevelX, this.getLevelY, this.getLevelW, this.getLevelH, this.x, this.y))
+        if ((direction == 1) && !activity)
         {
             y-=5;
         }
