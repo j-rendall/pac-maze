@@ -166,6 +166,5 @@ public class PacmanMove  {
         {
             x-=5;
         }
-
     }
 }

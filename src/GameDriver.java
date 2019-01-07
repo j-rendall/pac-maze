@@ -76,17 +76,26 @@ public class GameDriver extends JPanel {
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
-        mainMenu.paint(g2d);
-
+        if (mainMenu.isMenu()) {
+            mainMenu.paint(g2d);
+        }
         if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
         }
         if (mainMenu.isSettings()) {
             mainMenu.settingsPaint(g2d);
         }
-            Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH,this.clickX, this.clickY);
-            g2d.setColor(Color.GREEN);
-            g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
+      
+        if (mainMenu.isInstructions()) {
+            mainMenu.instructionsPaint(g2d);
+        }
+        if (mainMenu.isExit()) {
+            System.exit(10);
+        }
+
+            Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
+            //g2d.setColor(Color.GREEN);
+            //g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
     }
 
     public static void main(String[] args) throws InterruptedException {
