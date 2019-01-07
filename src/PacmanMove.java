@@ -8,7 +8,6 @@ public class PacmanMove  {
 
     private int x;
     private int y;
-    private int xa;
     private static int direction;
 
     public int getX() {
@@ -22,11 +21,10 @@ public class PacmanMove  {
     private GameDriver gd;
     public static boolean getActivity() { return activity; }
 
-    public PacmanMove(int width, int height,int depth,int color,int x,int y, int xa,int direction,Boolean activity,GameDriver gd)
+    public PacmanMove(int x,int y,int direction,Boolean activity,GameDriver gd)
     {
         this.x = x;
         this.y = y;
-        this.xa = xa;
         this.direction=direction;
         this.activity=activity;
         this.gd = gd;
@@ -108,7 +106,7 @@ public class PacmanMove  {
             activity = activity;
     }
 
-    public PacmanMove()
+        public PacmanMove()
     {
         try {
             img = ImageIO.read(new File("res\\pacman.png"));
