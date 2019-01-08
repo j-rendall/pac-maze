@@ -153,7 +153,7 @@ public class mainMenu {
         g2d.setFont(stringFont2);
         g2d.drawString(errormessage2, 100, 400);
 
-        g2d.drawImage(settingsimg, 0, 0, 766, 890, null);
+        g2d.drawImage(settingsimg, 0, 0, 766, 860, null);
     }
 
     public void instructionsPaint(Graphics2D g2d) {
