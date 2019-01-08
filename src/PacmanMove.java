@@ -30,8 +30,6 @@ public class PacmanMove  {
         this.gd = gd;
     }
 
-
-
     private BufferedImage img = null;
 
     public static void WPressed(KeyEvent e) {
