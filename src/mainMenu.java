@@ -59,24 +59,30 @@ public class mainMenu {
     }
 
     public boolean isPlay() {
-        if (clickX>260 && clickX<460 && clickY>400 && clickY<475) {
-            play = true;
-            menu = false;
+        if (menu) {
+            if (clickX > 260 && clickX < 460 && clickY > 300 && clickY < 475) {
+                play = true;
+                menu = false;
+            }
         }
         return play;
     }
 
     public boolean isSettings() {
-        if (clickX>260 && clickX<460 && clickY>500 && clickY<550) {
-            settings = true;
-            menu = false;
+        if (menu) {
+            if (clickX > 260 && clickX < 460 && clickY > 500 && clickY < 550) {
+                settings = true;
+                menu = false;
+            }
         }
         return settings;
     }
     public boolean isInstructions() {
-        if (clickX>40 && clickX<280 && clickY>770 && clickY<810) {
-            instructions = true;
-            menu = false;
+        if (menu) {
+            if (clickX > 40 && clickX < 280 && clickY > 770 && clickY < 810) {
+                instructions = true;
+                menu = false;
+            }
         }
         return instructions;
     }

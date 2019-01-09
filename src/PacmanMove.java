@@ -65,81 +65,61 @@ public class PacmanMove  {
     public static void WPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_W)
         {
-
-            activity = !activity;
-            System.out.println("W PRESSED");
-            System.out.println(activity);
+            activity = false;
             direction = 1;
         }
     }
 
     public static void WReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_W)
-            activity = activity;
+            activity = true;
     }
 
     public static void APressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A)
         {
-
-            activity = !activity;
-            System.out.println("A PRESSED");
-            System.out.println(activity);
+            activity = false;
             direction = 2;
         }
     }
 
     public static void AReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_A)
-            activity = activity;
+            activity = true;
     }
 
 
     public static void SPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_S)
         {
-
-            activity = !activity;
-            System.out.println("S PRESSED");
-            System.out.println(activity);
+            activity = false;
             direction = 3;
         }
     }
 
     public static void SReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_S)
-            activity = activity;
+            activity = true;
     }
     public static void DPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_D)
         {
-
-            activity = !activity;
-            System.out.println("D PRESSED");
-            System.out.println(activity);
+            activity = false;
             direction = 4;
         }
     }
 
     public static void DReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_D)
-            activity = activity;
+            activity = true;
     }
 
     public void tick() {
-        //W Up
-        if ((direction == 1) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x , this.y-5 , 766, 890, 0, 124)) != Level.Cell.WALL)
-        {
-            y-=5;
-        }
+//        //W Up
+//        if ((direction == 1) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x , this.y-5 , 766, 890, 0, 124)) != Level.Cell.WALL)
+//        {
+//            y-=5;
+//        }
     }
 
     public void pacPaint(Graphics2D g2d)
@@ -167,8 +147,8 @@ public class PacmanMove  {
             g2d.drawImage(pac3, x, y, 40, 40, null);
 
             //move other images off screen
-            g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac4, 10000, 10000, 40, 40, null);
         }
         else if (direction ==4)
@@ -176,9 +156,9 @@ public class PacmanMove  {
             g2d.drawImage(pac4, x, y, 40, 40, null);
 
             //move other images off screen
+            g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac3, 10000, 10000, 40, 40, null);
-            g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
         }
     }
 }
