@@ -56,6 +56,10 @@ public class Level {
         }
     }
 
+    public Cell getCell(Point p) {
+        return this.cells[p.row][p.col];
+    }
+
     public Cell[][] cells = new Cell[15][15];
 
     public Level() {

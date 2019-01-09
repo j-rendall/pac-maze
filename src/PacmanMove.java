@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -6,9 +7,11 @@ import javax.imageio.ImageIO;
 
 public class PacmanMove  {
 
-    private int x;
-    private int y;
-    private static int direction;
+    public int x = 710;
+    public int y = 655;
+    public static int direction = 4 ;
+    public static boolean activity;
+    public GameDriver gd;
 
     public int getX() {
         return x;
@@ -16,9 +19,7 @@ public class PacmanMove  {
     public int getY() {
         return y;
     }
-
-    public static boolean activity;
-    private GameDriver gd;
+    public static int getDirection(){return direction;}
     public static boolean getActivity() { return activity; }
 
     public PacmanMove(int x,int y,int direction,Boolean activity,GameDriver gd)
@@ -30,7 +31,36 @@ public class PacmanMove  {
         this.gd = gd;
     }
 
-    private BufferedImage img = null;
+    private static BufferedImage pac1 = null;
+    private static BufferedImage pac2 = null;
+    private static BufferedImage pac3 = null;
+    private static BufferedImage pac4 = null;
+
+    static {
+        try {
+            pac1 = ImageIO.read(new File("res\\pacman1.png"));
+        } catch (IOException e) {
+            System.out.println("image not found");
+        }
+
+        try {
+            pac2 = ImageIO.read(new File("res\\pacman2.png"));
+        } catch (IOException e) {
+            System.out.println("image not found");
+        }
+
+        try {
+            pac3 = ImageIO.read(new File("res\\pacman3.png"));
+        } catch (IOException e) {
+            System.out.println("image not found");
+        }
+
+        try {
+            pac4 = ImageIO.read(new File("res\\pacman4.png"));
+        } catch (IOException e) {
+            System.out.println("image not found");
+        }
+    }
 
     public static void WPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_W)
@@ -104,65 +134,51 @@ public class PacmanMove  {
             activity = activity;
     }
 
-    public PacmanMove()
-    {
-        try {
-            img = ImageIO.read(new File("res\\pacman.png"));
-        } catch (IOException e) {
-            System.out.println("image not found");
-            // hi
-        }
-
-        try {
-            img = ImageIO.read(new File("res\\Inky.jpg"));
-        } catch (IOException e) {
-            System.out.println("image not found");
-            // hi
-        }
-
-        try {
-            img = ImageIO.read(new File("res\\Blinky.jpg"));
-        } catch (IOException e) {
-            System.out.println("image not found");
-            // hi
-        }
-
-        try {
-            img = ImageIO.read(new File("res\\Pinky.jpg"));
-        } catch (IOException e) {
-            System.out.println("image not found");
-            // hi
-        }
-
-        try {
-            img = ImageIO.read(new File("res\\Clyde.jpg"));
-        } catch (IOException e) {
-            System.out.println("image not found");
-            // hi
-        }
-
-        //Level.Point point = this.getLevel().getCellIndex(this.x + 5, this.y +5, 766, 890, 0, 124);
-
-
+    public void tick() {
         //W Up
-        if ((direction == 1) && !activity)
+        if ((direction == 1) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x , this.y-5 , 766, 890, 0, 124)) != Level.Cell.WALL)
         {
             y-=5;
         }
-        //D Right
-        else if (direction == 2 && !activity)
+    }
+
+    public void pacPaint(Graphics2D g2d)
+    {
+        if (direction ==1)
         {
-            x+=5;
+            g2d.drawImage(pac1, x, y, 40, 40, null);
+
+            //move other images off screen
+            g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac3, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac4, 10000, 10000, 40, 40, null);
         }
-        //S Down
-        else if (direction == 3&& !activity)
+        else if (direction ==2)
         {
-            y+=5;
+            g2d.drawImage(pac2, x, y, 40, 40, null);
+
+            //move other images off screen
+            g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac3, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac4, 10000, 10000, 40, 40, null);
         }
-        //A left
-        else if (direction == 4 && !activity)
+        else if (direction ==3)
         {
-            x-=5;
+            g2d.drawImage(pac3, x, y, 40, 40, null);
+
+            //move other images off screen
+            g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac4, 10000, 10000, 40, 40, null);
+        }
+        else if (direction ==4)
+        {
+            g2d.drawImage(pac4, x, y, 40, 40, null);
+
+            //move other images off screen
+            g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac3, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
         }
     }
 }
