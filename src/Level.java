@@ -56,6 +56,10 @@ public class Level {
         }
     }
 
+    public Cell getCell(Point p) {
+        return this.cells[p.row][p.col];
+    }
+
     public Cell[][] cells = new Cell[15][15];
 
     public Level() {
@@ -110,6 +114,25 @@ public class Level {
         Graphics2D g2d = (Graphics2D) g;
         int curX;
         int curY = ch;
+
+        Font stringFont = new Font( "Arial", Font.PLAIN, 20 );
+        String menu = "MENU";
+        String exit = "EXIT";
+
+        g2d.setColor(Color.decode("#0000ff"));
+        g2d.fillRect(0,0,5000, 5000);
+
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(28, 25, 67, 25);
+        g2d.fillRect(28, 65, 67, 25);
+        g2d.setColor(Color.WHITE);
+        g2d.fillRect(23, 20, 67, 25);
+        g2d.fillRect(23, 60, 67, 25);
+        g2d.setColor(Color.BLACK);
+        g2d.setFont(stringFont);
+        g2d.drawString(menu, 29, 40);
+        g2d.drawString(exit, 34, 80);
+
         for (Cell[] row: this.cells) {
             curX = cw;
             for (Cell cell: row) {
