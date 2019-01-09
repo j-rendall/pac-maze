@@ -31,8 +31,6 @@ public class PacmanMove  {
         this.gd = gd;
     }
 
-
-
     private static BufferedImage pac1 = null;
     private static BufferedImage pac2 = null;
     private static BufferedImage pac3 = null;
