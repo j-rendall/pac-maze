@@ -65,37 +65,27 @@ public class PacmanMove  {
     public static void WPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_W)
         {
-
-            activity = !activity;
-            System.out.println("W PRESSED");
-            System.out.println(activity);
+            activity = false;
             direction = 1;
             GameDriver.gd.repaint();
         }
     }
 
     public static void WReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_W)
-            activity = activity;
+            activity = true;
     }
 
     public static void APressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A)
         {
-
-            activity = !activity;
-            System.out.println("A PRESSED");
-            System.out.println(activity);
+            activity = false;
             direction = 2;
             GameDriver.gd.repaint();
         }
     }
 
     public static void AReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_A)
             activity = true;
     }
@@ -104,6 +94,7 @@ public class PacmanMove  {
     public static void SPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_S)
         {
+
             activity = !activity;
             System.out.println("S PRESSED");
             System.out.println(activity);
@@ -113,28 +104,21 @@ public class PacmanMove  {
     }
 
     public static void SReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_S)
             activity = true;
     }
     public static void DPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_D)
         {
-
-            activity = !activity;
-            System.out.println("D PRESSED");
-            System.out.println(activity);
+            activity = false;
             direction = 4;
             GameDriver.gd.repaint();
         }
     }
 
     public static void DReleased(KeyEvent e) {
-        System.out.println("keyReleased=" +
-                KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_D)
-            activity = activity;
+            activity = true;
     }
 
     public void tick() {
@@ -161,7 +145,6 @@ public class PacmanMove  {
         {
             x+=5;
         }
-
     }
 
     public void pacPaint(Graphics2D g2d)
@@ -189,8 +172,8 @@ public class PacmanMove  {
             g2d.drawImage(pac3, x, y, 40, 40, null);
 
             //move other images off screen
-            g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
+            g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac4, 10000, 10000, 40, 40, null);
         }
         else if (direction ==2)
@@ -198,9 +181,9 @@ public class PacmanMove  {
             g2d.drawImage(pac4, x, y, 40, 40, null);
 
             //move other images off screen
+            g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac3, 10000, 10000, 40, 40, null);
-            g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
         }
     }
 
