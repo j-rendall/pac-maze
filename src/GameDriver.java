@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.InputStream;
 
+
 public class GameDriver extends JPanel implements KeyListener, MouseListener {
     private int levelX = 0;
     private int levelY = 100;
@@ -19,7 +20,6 @@ public class GameDriver extends JPanel implements KeyListener, MouseListener {
     public int y = 655;
     public static int direction = 4 ;
     public static boolean activity;
-    public GameDriver gd;
     PacmanMove PacmanMove = new PacmanMove(x, y,direction,activity, gd);
     private Level level;
 
@@ -64,12 +64,13 @@ public class GameDriver extends JPanel implements KeyListener, MouseListener {
         //g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
     }
 
+    public static GameDriver gd;
     public static void main(String[] args) throws InterruptedException {
         JFrame f = new JFrame("Project MAZE (Alpha 1.0)");
         try {
             int num = 5;
 
-            GameDriver gd = new GameDriver(GameDriver.class.getResourceAsStream("/level 1.txt"));
+            gd = new GameDriver(GameDriver.class.getResourceAsStream("/level 1.txt"));
             f.add(gd);
             f.setSize(766, 890);
             f.setVisible(true);

@@ -39,6 +39,10 @@ public class mainMenu {
     public void mouseClicked(MouseEvent e) {
         clickX = e.getX();
         clickY = e.getY();
+        GameDriver.gd.invalidate();
+        GameDriver.gd.revalidate();
+        GameDriver.gd.repaint();
+        GameDriver.gd.grabFocus();
     }
 
     public boolean isMenu() {
@@ -50,9 +54,9 @@ public class mainMenu {
         }
         else if (isInstructions() || isSettings()) {
             if (clickX > 0 && clickX < 70 && clickY > 0 && clickY < 70) {
-                menu = true;
-                instructions = false;
-                settings = false;
+                GameDriver.gd.invalidate();
+                GameDriver.gd.revalidate();
+                GameDriver.gd.repaint();
             }
         }
         return menu;
