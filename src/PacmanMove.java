@@ -70,6 +70,7 @@ public class PacmanMove  {
             System.out.println("W PRESSED");
             System.out.println(activity);
             direction = 1;
+            GameDriver.gd.repaint();
         }
     }
 
@@ -88,6 +89,7 @@ public class PacmanMove  {
             System.out.println("A PRESSED");
             System.out.println(activity);
             direction = 2;
+            GameDriver.gd.repaint();
         }
     }
 
@@ -95,18 +97,18 @@ public class PacmanMove  {
         System.out.println("keyReleased=" +
                 KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_A)
-            activity = activity;
+            activity = true;
     }
 
 
     public static void SPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_S)
         {
-
             activity = !activity;
             System.out.println("S PRESSED");
             System.out.println(activity);
             direction = 3;
+            GameDriver.gd.repaint();
         }
     }
 
@@ -114,7 +116,7 @@ public class PacmanMove  {
         System.out.println("keyReleased=" +
                 KeyEvent.getKeyText(e.getKeyCode()));
         if (e.getKeyCode() == KeyEvent.VK_S)
-            activity = activity;
+            activity = true;
     }
     public static void DPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_D)
@@ -124,6 +126,7 @@ public class PacmanMove  {
             System.out.println("D PRESSED");
             System.out.println(activity);
             direction = 4;
+            GameDriver.gd.repaint();
         }
     }
 
@@ -140,6 +143,25 @@ public class PacmanMove  {
         {
             y-=5;
         }
+
+        //S DOWN
+        if ((direction == 3) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x , this.y+5 , 766, 890, 0, 124)) != Level.Cell.WALL)
+        {
+            y+=5;
+        }
+
+        //A LEFT
+        if ((direction == 4) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x-5 , this.y , 766, 890, 0, 124)) != Level.Cell.WALL)
+        {
+            x-=5;
+        }
+
+        // Right
+        if ((direction == 2) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x+5 , this.y , 766, 890, 0, 124)) != Level.Cell.WALL)
+        {
+            x+=5;
+        }
+
     }
 
     public void pacPaint(Graphics2D g2d)
@@ -153,7 +175,7 @@ public class PacmanMove  {
             g2d.drawImage(pac3, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac4, 10000, 10000, 40, 40, null);
         }
-        else if (direction ==2)
+        else if (direction ==4)
         {
             g2d.drawImage(pac2, x, y, 40, 40, null);
 
@@ -171,7 +193,7 @@ public class PacmanMove  {
             g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(pac4, 10000, 10000, 40, 40, null);
         }
-        else if (direction ==4)
+        else if (direction ==2)
         {
             g2d.drawImage(pac4, x, y, 40, 40, null);
 
@@ -181,4 +203,6 @@ public class PacmanMove  {
             g2d.drawImage(pac1, 10000, 10000, 40, 40, null);
         }
     }
+
+
 }
