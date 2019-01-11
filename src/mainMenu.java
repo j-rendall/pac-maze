@@ -1,4 +1,7 @@
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -14,6 +17,7 @@ public class mainMenu {
     public boolean instructions = false;
     public boolean exit = false;
     public boolean menu = true;
+    public boolean music = false;
     private BufferedImage img = null;
     private BufferedImage instructionsimg = null;
     private BufferedImage settingsimg = null;
@@ -50,10 +54,12 @@ public class mainMenu {
             if (clickX > 23 && clickX < 90 && clickY > 20 && clickY < 45) {
                 menu = true;
                 play = false;
+                music = false;
             }
         }
         else if (isInstructions() || isSettings()) {
             if (clickX > 0 && clickX < 70 && clickY > 0 && clickY < 70) {
+                music = false;
                 GameDriver.gd.invalidate();
                 GameDriver.gd.revalidate();
                 GameDriver.gd.repaint();
@@ -77,6 +83,7 @@ public class mainMenu {
             if (clickX > 260 && clickX < 460 && clickY > 500 && clickY < 550) {
                 settings = true;
                 menu = false;
+                music = false;
             }
         }
         return settings;
@@ -86,20 +93,30 @@ public class mainMenu {
             if (clickX > 40 && clickX < 280 && clickY > 770 && clickY < 810) {
                 instructions = true;
                 menu = false;
+                music = false;
             }
         }
         return instructions;
+    }
+
+    public boolean isMusic() {
+        if (play) {
+            music = true;
+        }
+        return music;
     }
 
     public boolean isExit() {
         if (isMenu()) {
             if (clickX > 615 && clickX < 705 && clickY > 770 && clickY < 810) {
                 exit = true;
+                music = false;
             }
         }
         if (isPlay()) {
             if (clickX>23 && clickX<90 && clickY>60 && clickY<85) {
                 exit = true;
+                music = false;
             }
         }
         return exit;

@@ -1,7 +1,3 @@
-import newstuff.AppView;
-import newstuff.Game;
-import newstuff.MainMenu;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
@@ -12,26 +8,19 @@ import java.io.InputStream;
 
 
 public class GameDriver extends JPanel implements KeyListener, MouseListener {
-    public static JFrame frame;
-    public static AppView current;
-    public static AppView main;
-    public static AppView game;
-    public static final int width = 766;
-    public static final int height = 890;
-
-
-
     private int levelX = 0;
     private int levelY = 100;
     private int levelW = 50;
     private int levelH = 50;
-    //private int clickX = 0;
-    //private int clickY = 0;
+    private int clickX = 0;
+    private int clickY = 0;
     mainMenu mainMenu = new mainMenu();
 
+    public int x = 710;
+    public int y = 655;
     public static int direction = 4 ;
     public static boolean activity;
-//    Pacman Pacman = new Pacman(x, y,direction,activity, this);
+    PacmanMove PacmanMove = new PacmanMove(x, y,direction,activity, gd);
     private Level level;
 
     public Level getLevel() {
@@ -58,7 +47,8 @@ public class GameDriver extends JPanel implements KeyListener, MouseListener {
 
         if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
-            //Pacman.pacPaint(g2d);
+            PacmanMove.pacPaint(g2d);
+            PacmanMove.ghostPaint(g2d);
         }
         if (mainMenu.isSettings()) {
             mainMenu.settingsPaint(g2d);
@@ -70,71 +60,63 @@ public class GameDriver extends JPanel implements KeyListener, MouseListener {
             System.exit(10);
         }
 
-        //Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
+        if (mainMenu.isMusic()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("res\\peewee.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(Exception ex) {
+                System.out.println("Error with playing sound.");
+                ex.printStackTrace();
+            }
+        }
+
+        Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
         //g2d.setColor(Color.GREEN);
         //g2d.drawString(point.toString(), 100, 100);   //draws coordinate of click
     }
 
     public static GameDriver gd;
     public static void main(String[] args) throws InterruptedException {
+        JFrame f = new JFrame("Project MAZE (Alpha 1.0)");
+        try {
+            int num = 5;
 
+            gd = new GameDriver(GameDriver.class.getResourceAsStream("/level 1.txt"));
+            f.add(gd);
+            f.setSize(766, 890);
+            f.setVisible(true);
+            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-
-        current = main = new MainMenu();
-        game = new Game();
-
-        frame = new JFrame("Pac-Maze");
-        frame.setSize(width, height);
-        frame.setResizable(false);
-        frame.setContentPane(current);
-        frame.setVisible(true);
-
-        while (true) {
-            frame.repaint();
-            current.tick();
-            try {Thread.sleep(20);} catch (InterruptedException ignored) {}
+            while (true) {
+                //gd.move(); //Updates the coordinates
+                if (gd.mainMenu.isPlay()) {
+                    gd.PacmanMove.tick();
+                }
+                gd.repaint(); //Calls the paint method
+                Thread.sleep(10); //Pauses for a moment
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
         }
-
-
-//        JFrame f = new JFrame("Project MAZE (Alpha 1.0)");
-//        try {
-//            int num = 5;
-//
-//            gd = new GameDriver(GameDriver.class.getResourceAsStream("/level 1.txt"));
-//            f.add(gd);
-//            f.setSize(766, 890);
-//            f.setVisible(true);
-//            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//
-//            while (true) {
-//                //gd.move(); //Updates the coordinates
-//                if (gd.mainMenu.isPlay()) {
-//                    //gd.Pacman.tick();
-//                }
-//                gd.repaint(); //Calls the paint method
-//                Thread.sleep(10); //Pauses for a moment
-//            }
-//        } catch (Exception ex) {
-//            throw new RuntimeException(ex);
-//        }
     }
 
     public void keyTyped(KeyEvent e) {
     }
 
     public void keyPressed(KeyEvent e) {
-        Pacman.WPressed(e);
-        Pacman.APressed(e);
-        Pacman.SPressed(e);
-        Pacman.DPressed(e);
+        PacmanMove.WPressed(e);
+        PacmanMove.APressed(e);
+        PacmanMove.SPressed(e);
+        PacmanMove.DPressed(e);
     }
 
     public void keyReleased(KeyEvent e) {
-        Pacman.WReleased(e);
-        Pacman.AReleased(e);
-        Pacman.SReleased(e);
-        Pacman.DReleased(e);
+        PacmanMove.WReleased(e);
+        PacmanMove.AReleased(e);
+        PacmanMove.SReleased(e);
+        PacmanMove.DReleased(e);
     }
 
     @Override
