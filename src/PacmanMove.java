@@ -35,31 +35,44 @@ public class PacmanMove  {
     private static BufferedImage pac2 = null;
     private static BufferedImage pac3 = null;
     private static BufferedImage pac4 = null;
+    private static BufferedImage blinky = null;
+    private static BufferedImage clyde = null;
+    private static BufferedImage inky = null;
+    private static BufferedImage pinky = null;
 
     static {
         try {
             pac1 = ImageIO.read(new File("res\\pacman1.png"));
         } catch (IOException e) {
-            System.out.println("image not found");
-        }
-
+            System.out.println("pacman1.png not found"); }
         try {
             pac2 = ImageIO.read(new File("res\\pacman2.png"));
         } catch (IOException e) {
-            System.out.println("image not found");
-        }
-
+            System.out.println("pacman2.png not found"); }
         try {
             pac3 = ImageIO.read(new File("res\\pacman3.png"));
         } catch (IOException e) {
-            System.out.println("image not found");
-        }
-
+            System.out.println("pacman3.png not found"); }
         try {
             pac4 = ImageIO.read(new File("res\\pacman4.png"));
         } catch (IOException e) {
-            System.out.println("image not found");
-        }
+            System.out.println("pacman4.png not found"); }
+        try {
+            blinky = ImageIO.read(new File("res\\Blinky.png"));
+        } catch (IOException e) {
+            System.out.println("Blinky.png not found"); }
+        try {
+            clyde = ImageIO.read(new File("res\\Clyde.png"));
+        } catch (IOException e) {
+            System.out.println("Clyde.png not found"); }
+        try {
+            inky = ImageIO.read(new File("res\\Inky.png"));
+        } catch (IOException e) {
+            System.out.println("Inky.png not found"); }
+        try {
+            pinky = ImageIO.read(new File("res\\Pinky.png"));
+        } catch (IOException e) {
+            System.out.println("Pinky.png not found"); }
     }
 
     public static void WPressed(KeyEvent e) {
@@ -96,8 +109,6 @@ public class PacmanMove  {
         {
 
             activity = !activity;
-            System.out.println("S PRESSED");
-            System.out.println(activity);
             direction = 3;
             GameDriver.gd.repaint();
         }
@@ -186,6 +197,11 @@ public class PacmanMove  {
             g2d.drawImage(pac3, 10000, 10000, 40, 40, null);
         }
     }
-
-
+    public void ghostPaint(Graphics2D g2d)
+    {
+        g2d.drawImage(blinky, 50,50,40,40, null);
+        g2d.drawImage(clyde, 50,50,40,40, null);
+        g2d.drawImage(inky, 50,50,40,40, null);
+        g2d.drawImage(pinky, 50,50,40,40, null);
+    }
 }

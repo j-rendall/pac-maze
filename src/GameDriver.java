@@ -1,11 +1,14 @@
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.io.InputStream;
-
 
 public class GameDriver extends JPanel implements KeyListener, MouseListener {
     private int levelX = 0;
@@ -48,6 +51,7 @@ public class GameDriver extends JPanel implements KeyListener, MouseListener {
         if (mainMenu.isPlay()) {
             this.level.drawOn(g2d, this.levelX, this.levelY, this.levelW, this.levelH);
             PacmanMove.pacPaint(g2d);
+            PacmanMove.ghostPaint(g2d);
         }
         if (mainMenu.isSettings()) {
             mainMenu.settingsPaint(g2d);
@@ -57,6 +61,18 @@ public class GameDriver extends JPanel implements KeyListener, MouseListener {
         }
         if (mainMenu.isExit()) {
             System.exit(10);
+        }
+
+        if (mainMenu.isMusic()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("res\\peewee.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch(Exception ex) {
+                System.out.println("Error with playing sound.");
+                ex.printStackTrace();
+            }
         }
 
         Level.Point point = this.level.getCellIndex(this.levelX, this.levelY, this.levelW, this.levelH, this.clickX, this.clickY);
