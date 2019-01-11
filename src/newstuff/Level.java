@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
 public class Level {
+    public Object paint;
+
     public enum Cell {
         WALL("w", Color.decode("#000000")),
         SPACE("s", Color.decode("#ffffff")),

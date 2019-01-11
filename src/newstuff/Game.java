@@ -31,10 +31,11 @@ public class Game extends AppView {
         things.remove(t);
     }
 
-    public void paint(Graphics g) {
-        Graphics2D g2 = (Graphics2D) g;
+    public void paint(Graphics g2d) {
+        Graphics2D g2 = (Graphics2D) g2d;
         g2.setColor(Color.BLACK);
-        g2.fillRect(0, 0, App.width, App.height);
+//        g2.fillRect(0, 0, App.width, App.height);
+        level.drawOn(g2,0,0,App.width,App.height);
         for (Thing t: things) t.paint(this, g2);
     }
 
