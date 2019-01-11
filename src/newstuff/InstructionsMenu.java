@@ -36,6 +36,4 @@ public class InstructionsMenu extends AppView {
             App.setCurrent(App.main);
         }
     }
-
-
 }
