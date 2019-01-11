@@ -13,6 +13,7 @@ public class App {
     public static void setCurrent(AppView v) {
         App.current = v;
         App.frame.setContentPane(v);
+        App.current.grabFocus();
     }
 
     public static void main(String[] args) {

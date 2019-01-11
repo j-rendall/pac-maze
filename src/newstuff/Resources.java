@@ -11,10 +11,10 @@ public class Resources {
     public static final Image pac2 = loadImage("pacman2.png");
     public static final Image pac3 = loadImage("pacman3.png");
     public static final Image pac4 = loadImage("pacman4.png");
-    public static final Image blinky = loadImage("Blinky.png");
-    public static final Image clyde = loadImage("Clyde.png");
-    public static final Image inky = loadImage("Inky.png");
-    public static final Image pinky = loadImage("Pinky.png");
+//    public static final Image blinky = loadImage("Blinky.png");
+//    public static final Image clyde = loadImage("Clyde.png");
+//    public static final Image inky = loadImage("Inky.png");
+//    public static final Image pinky = loadImage("Pinky.png");
 
     public static Image loadImage(String filename) {
         try {

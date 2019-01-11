@@ -5,16 +5,29 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Game extends AppView {
     private final java.util.List<Thing> things = new CopyOnWriteArrayList<>();
+    public Level level;
 
     public Game() {
         super();
+        try {
+            this.level = new Level(Game.class.getResourceAsStream("/level 1.txt"));
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+        this.addThing(new Pacman());
     }
 
     public void addThing(Thing t) {
+        this.addKeyListener(t);
+        this.addMouseListener(t);
+        this.addMouseMotionListener(t);
         things.add(t);
     }
 
     public void removeThing(Thing t) {
+        this.removeKeyListener(t);
+        this.removeMouseListener(t);
+        this.removeMouseMotionListener(t);
         things.remove(t);
     }
 
