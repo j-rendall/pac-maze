@@ -38,41 +38,6 @@ public class Pacman  {
     private static BufferedImage inky = null;
     private static BufferedImage pinky = null;
 
-    static {
-        try {
-            pac1 = ImageIO.read(new File("res\\pacman1.png"));
-        } catch (IOException e) {
-            System.out.println("pacman1.png not found"); }
-        try {
-            pac2 = ImageIO.read(new File("res\\pacman2.png"));
-        } catch (IOException e) {
-            System.out.println("pacman2.png not found"); }
-        try {
-            pac3 = ImageIO.read(new File("res\\pacman3.png"));
-        } catch (IOException e) {
-            System.out.println("pacman3.png not found"); }
-        try {
-            pac4 = ImageIO.read(new File("res\\pacman4.png"));
-        } catch (IOException e) {
-            System.out.println("pacman4.png not found"); }
-        try {
-            blinky = ImageIO.read(new File("res\\Blinky.png"));
-        } catch (IOException e) {
-            System.out.println("Blinky.png not found"); }
-        try {
-            clyde = ImageIO.read(new File("res\\Clyde.png"));
-        } catch (IOException e) {
-            System.out.println("Clyde.png not found"); }
-        try {
-            inky = ImageIO.read(new File("res\\Inky.png"));
-        } catch (IOException e) {
-            System.out.println("Inky.png not found"); }
-        try {
-            pinky = ImageIO.read(new File("res\\Pinky.png"));
-        } catch (IOException e) {
-            System.out.println("Pinky.png not found"); }
-    }
-
     public static void WPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_W)
         {
