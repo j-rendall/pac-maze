@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class PacmanMove  {
+public class Pacman  {
 
     public int x = 710;
     public int y = 655;
@@ -13,16 +13,14 @@ public class PacmanMove  {
     public static boolean activity;
     public GameDriver gd;
 
-    public int getX() {
-        return x;
-    }
-    public int getY() {
-        return y;
-    }
+
+    public int getX() {return x;}
+    public int getY() {return x;}
     public static int getDirection(){return direction;}
     public static boolean getActivity() { return activity; }
 
-    public PacmanMove(int x,int y,int direction,Boolean activity,GameDriver gd)
+
+    public Pacman(int x,int y,int direction,Boolean activity,GameDriver gd)
     {
         this.x = x;
         this.y = y;
@@ -123,25 +121,27 @@ public class PacmanMove  {
 
     public void tick() {
         //W Up
-        if ((direction == 1) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x , this.y-5 , 766, 890, 0, 124)) != Level.Cell.WALL)
+        System.out.println(this.x);
+        System.out.println(this.gd.getLevel().getCellIndex(0, 124, 766, 890, this.x , this.y ));
+        if ((direction == 1) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(0, 124, 766, 890, this.x , this.y-5 )) != Level.Cell.WALL)
         {
             y-=5;
         }
 
         //S DOWN
-        if ((direction == 3) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x , this.y+5 , 766, 890, 0, 124)) != Level.Cell.WALL)
+        if ((direction == 3) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(0, 124, 766, 890, this.x , this.y+5 )) != Level.Cell.WALL)
         {
             y+=5;
         }
 
         //A LEFT
-        if ((direction == 4) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x-5 , this.y , 766, 890, 0, 124)) != Level.Cell.WALL)
+        if ((direction == 4) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(0, 124 , 766, 890, this.x-5 , this.y)) != Level.Cell.WALL)
         {
             x-=5;
         }
 
         // Right
-        if ((direction == 2) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(this.x+5 , this.y , 766, 890, 0, 124)) != Level.Cell.WALL)
+        if ((direction == 2) && !activity && this.gd.getLevel().getCell(this.gd.getLevel().getCellIndex(0, 124 , 766, 890, this.x+5 , this.y)) != Level.Cell.WALL)
         {
             x+=5;
         }
