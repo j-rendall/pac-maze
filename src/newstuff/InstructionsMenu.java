@@ -32,7 +32,9 @@ public class InstructionsMenu extends AppView {
 
     public void mouseClicked(MouseEvent mouseEvent) {
         super.mouseClicked(mouseEvent);
-        App.setCurrent(App.game);
+        if (mouseEvent.getX() > 0 && mouseEvent.getX() < 60 && mouseEvent.getY() > 0 && mouseEvent.getY() < 60) {
+            App.setCurrent(App.main);
+        }
     }
 
 
