@@ -97,15 +97,19 @@ public class Pacman extends Thing {
         super.keyReleased(keyEvent);
         switch (keyEvent.getKeyCode()) {
             case VK_W:
+            case VK_UP:
                 activity = false;
                 break;
             case VK_A:
+            case VK_LEFT:
                 activity = false;
                 break;
             case VK_S:
+            case VK_DOWN:
                 activity = false;
                 break;
             case VK_D:
+            case VK_RIGHT:
                 activity = false;
                 break;
         }

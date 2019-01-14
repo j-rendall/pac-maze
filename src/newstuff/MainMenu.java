@@ -16,8 +16,8 @@ public class MainMenu extends AppView {
         Font stringFont1 = new Font( "Arial", Font.ITALIC, 80 );
         String play = "PLAY";
         Font stringFont2 = new Font( "Arial", Font.PLAIN, 70 );
-        String settings = "SETTINGS";
-        Font stringFont3 = new Font( "Arial", Font.PLAIN, 36 );
+        String settings = "SETTINGS";                                               //legacy code
+        Font stringFont3 = new Font( "Arial", Font.PLAIN, 25 );
         String instructions = "INSTRUCTIONS";
         Font stringFont4 = new Font( "Arial", Font.PLAIN, 30 );
         String exit = "EXIT";
@@ -34,23 +34,20 @@ public class MainMenu extends AppView {
 
         g2d.setColor(Color.BLACK);
         g2d.fillRect(265, 405, 200, 75);
-        g2d.fillRect(265, 505, 200, 50);
-        g2d.fillRect(45, 775, 240, 40);
+        g2d.fillRect(265, 505, 200, 45);
         g2d.fillRect(620, 775, 90, 40);
 
         g2d.setColor(Color.WHITE);
         g2d.fillRect(260, 400, 200, 75);
-        g2d.fillRect(260, 500, 200, 50);
-        g2d.fillRect(40, 770, 240, 40);
+        g2d.fillRect(260, 500, 200, 45);
         g2d.fillRect(615, 770, 90, 40);
 
         g2d.setFont(stringFont2);
         g2d.setColor(Color.decode("#0000ff"));
         g2d.drawString(play, 270, 465);
         g2d.setFont(stringFont3);
-        g2d.drawString(settings, 270, 540);
+        g2d.drawString(instructions, 270, 530);
         g2d.setFont(stringFont4);
-        g2d.drawString(instructions, 50, 800);
         g2d.drawString(exit, 625, 800);
     }
 
