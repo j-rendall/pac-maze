@@ -34,24 +34,7 @@ public class Game extends AppView {
 
     public void paint(Graphics g2d) {
         Graphics2D g2 = (Graphics2D) g2d;
-        Font stringFont = new Font( "Arial", Font.PLAIN, 20 );
-        String menu = "MENU";
-        String exit = "EXIT";
-
-        g2d.setColor(Color.decode("#0000ff"));
-        g2d.fillRect(0,0,App.width, App.height);
-
-        g2d.setColor(Color.BLACK);
-        g2d.fillRect(28, 25, 67, 25);
-        g2d.fillRect(28, 65, 67, 25);
-        g2d.setColor(Color.WHITE);
-        g2d.fillRect(23, 20, 67, 25);
-        g2d.fillRect(23, 60, 67, 25);
-        g2d.setColor(Color.BLACK);
-        g2d.setFont(stringFont);
-        g2d.drawString(menu, 29, 40);
-        g2d.drawString(exit, 34, 80);       //Paints buttons and background
-        level.drawOn(g2,0,0,App.width,App.height);
+        level.drawOn(g2,0,110,50, 50);
         for (Thing t: things) t.paint(this, g2);
     }
 

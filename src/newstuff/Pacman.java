@@ -6,9 +6,9 @@ import java.awt.event.KeyEvent;
 import static java.awt.event.KeyEvent.*;
 
 public class Pacman extends Thing {
-    public int x = 0;
-    public int y = 0;
-    public int direction = 4;
+    public int x = 705;
+    public int y = 665;
+    public int direction = 2;
     public boolean activity = false;
 
     public Pacman() {
@@ -70,18 +70,22 @@ public class Pacman extends Thing {
         super.keyPressed(keyEvent);
         switch (keyEvent.getKeyCode()) {
             case VK_W:
+            case VK_UP:
                 activity = true;
                 direction = 1;
                 break;
             case VK_A:
+            case VK_LEFT:
                 activity = true;
                 direction = 2;
                 break;
             case VK_S:
+            case VK_DOWN:
                 activity = true;
                 direction = 3;
                 break;
             case VK_D:
+            case VK_RIGHT:
                 activity = true;
                 direction = 4;
                 break;
