@@ -166,8 +166,8 @@ public class Level {
         }
 
         int row, col;
-        row = (cx - x) / width;
-        col = (cy - y) / height;
+        col = (cx - x) / width;
+        row = (cy - y) / height;
         return new Point(row, col);
     }
 }
