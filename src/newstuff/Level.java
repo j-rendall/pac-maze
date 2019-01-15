@@ -12,7 +12,7 @@ public class Level {
 
     public enum Cell {
         WALL("w", Color.decode("#000000")),
-        SPACE("s", Color.decode("#ffffff")),
+        SPACE("s", Color.decode("#35a3d6")),
         DOT("d", Color.decode("#35a3d6")),
         GHOST("g", Color.decode("#eeeeeee")),
         ENTRANCE("b", Color.decode("#0000ff")),
@@ -65,6 +65,10 @@ public class Level {
 
     public Cell getCell(Point p) {
         return this.cells[p.row][p.col];
+    }
+
+    public void setCell(Point p, Cell c) {
+        this.cells[p.row][p.col] = c;
     }
 
     public Cell[][] cells = new Cell[15][15];

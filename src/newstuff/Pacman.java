@@ -9,7 +9,7 @@ import static java.awt.event.KeyEvent.*;
 public class Pacman extends Thing {
     public int x = 705;
     public int y = 665;
-    public int direction = 2;
+    public int direction = 4;
     public boolean activity = false;
 
 
@@ -21,19 +21,47 @@ public class Pacman extends Thing {
 
         //W Up
         if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y-5 )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y-5 )) != Level.Cell.WALL)
-        {y -= 5;}
+        {
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y-5 )) == Level.Cell.DOT)
+            {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y-5 ), Level.Cell.SPACE);
+                //add point
+            }
+            y -= 5;
+        }
 
         //S DOWN
         if ((direction == 3) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y+45 )) != Level.Cell.WALL)
-        {y += 5;}
-
-        //A LEFT
-        if ((direction == 4) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y+40 )) != Level.Cell.WALL)
-        {x += 5;}
+        {
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) == Level.Cell.DOT)
+            {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 ), Level.Cell.SPACE);
+                //add point
+            }
+            y += 5;
+        }
 
         //D Right
-        if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-5, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-5, y )) != Level.Cell.WALL)
-        {x -= 5;}
+        if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y+40 )) != Level.Cell.WALL)
+        {
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y )) == Level.Cell.DOT)
+            {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y ), Level.Cell.SPACE);
+                //add point
+            }
+            x += 5;
+        }
+
+        //A left
+        if ((direction == 4) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-5, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-5, y+40 )) != Level.Cell.WALL)
+        {
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-45, y )) == Level.Cell.DOT)
+            {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x-45, y ), Level.Cell.SPACE);
+                //add point
+            }
+            x -= 5;
+        }
     }
 
     @Override
@@ -45,7 +73,7 @@ public class Pacman extends Thing {
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
-        } else if (direction == 4) {
+        } else if (direction == 2) {
             g2d.drawImage(Resources.pac2, x, y, 40, 40, null);
 
             //move other images off screen
@@ -59,7 +87,7 @@ public class Pacman extends Thing {
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
-        } else if (direction == 2) {
+        } else if (direction == 4) {
             g2d.drawImage(Resources.pac4, x, y, 40, 40, null);
 
             //move other images off screen
@@ -89,7 +117,7 @@ public class Pacman extends Thing {
             case VK_A:
             case VK_LEFT:
                 activity = true;
-                direction = 2;
+                direction = 4;
                 break;
             case VK_S:
             case VK_DOWN:
@@ -99,7 +127,7 @@ public class Pacman extends Thing {
             case VK_D:
             case VK_RIGHT:
                 activity = true;
-                direction = 4;
+                direction = 2;
                 break;
         }
     }
