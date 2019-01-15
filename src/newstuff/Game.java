@@ -1,12 +1,17 @@
 package newstuff;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Game extends AppView {
     private final java.util.List<Thing> things = new CopyOnWriteArrayList<>();
     public Level level;
+    public static int score = 0;
 
     public Game() {
         super();
@@ -32,6 +37,10 @@ public class Game extends AppView {
         things.remove(t);
     }
 
+    public void highscore() {
+        if (App.highscore < score) {App.highscore = score;}
+    }
+
     public void paint(Graphics g2d) {
         Graphics2D g2 = (Graphics2D) g2d;
         level.drawOn(g2,0,110,50, 50);
@@ -41,6 +50,7 @@ public class Game extends AppView {
     public void tick() {
         for (Thing t: things) for (Thing t2: things) t.check(this, t2);
         for (Thing t: things) t.tick(this);
+        highscore();
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {

@@ -11,6 +11,9 @@ public class App {
     public static AppView instructions;
     public static final int width = 750;
     public static final int height = 890;
+    public static boolean music = true;
+    public static boolean sound = true;
+    public static int highscore = 0;
 
     public static void setCurrent(AppView v) {
         App.current = v;
@@ -30,6 +33,8 @@ public class App {
         frame.setContentPane(current);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
+
+        Resources.peewee.playLoop();
 
         current.grabFocus();
 
