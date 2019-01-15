@@ -16,11 +16,13 @@ public class MainMenu extends AppView {
         Font stringFont1 = new Font( "Arial", Font.ITALIC, 80 );
         String play = "PLAY";
         Font stringFont2 = new Font( "Arial", Font.PLAIN, 70 );
-        String settings = "SETTINGS";                                               //legacy code
-        Font stringFont3 = new Font( "Arial", Font.PLAIN, 25 );
         String instructions = "INSTRUCTIONS";
-        Font stringFont4 = new Font( "Arial", Font.PLAIN, 30 );
+        Font stringFont3 = new Font( "Arial", Font.PLAIN, 25 );
         String exit = "EXIT";
+        Font stringFont4 = new Font( "Arial", Font.PLAIN, 30 );
+        String reset = "RESET";
+        String highscore = "HIGHSCORE";
+        Font stringFont5 = new Font( "Arial", Font.PLAIN, 15 );
 
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
@@ -35,11 +37,13 @@ public class MainMenu extends AppView {
         g2d.setColor(Color.BLACK);
         g2d.fillRect(265, 405, 200, 75);
         g2d.fillRect(265, 505, 200, 45);
+        g2d.fillRect(40, 775, 100, 50);
         g2d.fillRect(620, 775, 90, 40);
 
         g2d.setColor(Color.WHITE);
         g2d.fillRect(260, 400, 200, 75);
         g2d.fillRect(260, 500, 200, 45);
+        g2d.fillRect(35, 770, 100, 50);
         g2d.fillRect(615, 770, 90, 40);
 
         g2d.setFont(stringFont2);
@@ -49,6 +53,9 @@ public class MainMenu extends AppView {
         g2d.drawString(instructions, 270, 530);
         g2d.setFont(stringFont4);
         g2d.drawString(exit, 625, 800);
+        g2d.setFont(stringFont5);
+        g2d.drawString(reset,60,790);
+        g2d.drawString(highscore,40,810);
     }
 
     public void tick() {
@@ -61,10 +68,14 @@ public class MainMenu extends AppView {
             App.setCurrent(App.game);
         }
         else if (mouseEvent.getX() > 260 && mouseEvent.getX() < 460 && mouseEvent.getY() > 500 && mouseEvent.getY() < 550) {
-            App.setCurrent(App.settings);
-        }
-        else if (mouseEvent.getX() > 40 && mouseEvent.getX() < 280 && mouseEvent.getY() > 770 && mouseEvent.getY() < 810) {
             App.setCurrent(App.instructions);
+        }
+//        else if (mouseEvent.getX() > 40 && mouseEvent.getX() < 280 && mouseEvent.getY() > 770 && mouseEvent.getY() < 810) {
+//            App.setCurrent(App.instructions);
+//        }
+        else if (mouseEvent.getX() > 35 && mouseEvent.getX() < 135 && mouseEvent.getY() > 770 && mouseEvent.getY() < 820) {
+            App.highscore = 0;
+            System.out.println(App.highscore);
         }
         else if (mouseEvent.getX() > 615 && mouseEvent.getX() < 705 && mouseEvent.getY() > 770 && mouseEvent.getY() < 810) {
             System.exit(10);
