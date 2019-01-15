@@ -22,45 +22,44 @@ public class Pacman extends Thing {
         //W Up
         if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y-5 )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y-5 )) != Level.Cell.WALL)
         {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y-5 )) == Level.Cell.DOT)
+            y -= 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y )) == Level.Cell.DOT)
             {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y-5 ), Level.Cell.SPACE);
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y ), Level.Cell.SPACE);
                 //add point
             }
-            y -= 5;
         }
 
         //S DOWN
         if ((direction == 3) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y+45 )) != Level.Cell.WALL)
         {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) == Level.Cell.DOT)
-            {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 ), Level.Cell.SPACE);
+            y += 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+40 )) == Level.Cell.DOT) {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + 40), Level.Cell.SPACE);
                 //add point
             }
-            y += 5;
         }
 
         //D Right
         if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y+40 )) != Level.Cell.WALL)
         {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y )) == Level.Cell.DOT)
+            x += 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y )) == Level.Cell.DOT)
             {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y ), Level.Cell.SPACE);
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y ), Level.Cell.SPACE);
                 //add point
             }
-            x += 5;
         }
 
         //A left
         if ((direction == 4) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-5, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-5, y+40 )) != Level.Cell.WALL)
         {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-45, y )) == Level.Cell.DOT)
+            x -= 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y )) == Level.Cell.DOT)
             {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x-45, y ), Level.Cell.SPACE);
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y ), Level.Cell.SPACE);
                 //add point
             }
-            x -= 5;
         }
     }
 
