@@ -9,7 +9,7 @@ public class App {
     public static AppView game;
     public static AppView settings;
     public static AppView instructions;
-    public static final int width = 766;
+    public static final int width = 750;
     public static final int height = 890;
 
     public static void setCurrent(AppView v) {
