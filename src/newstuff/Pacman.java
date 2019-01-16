@@ -23,12 +23,24 @@ public class Pacman extends Thing {
     public void tick(Game gd) {
 
         //W Up
-        if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y - 5)) != Level.Cell.WALL) {
+        if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y - 5)) != Level.Cell.WALL && y-5 >155){
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.DOT) {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5), Level.Cell.SPACE);
                 //add point
             }
             y -= 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
+            {
+                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                if (a == YES_OPTION) {
+                    System.out.println("yes option");
+                }
+                else {
+                    System.out.println("no option");
+                    x=55;
+                    direction =2;
+                }
+            }
         }
 
         //S DOWN
@@ -38,15 +50,40 @@ public class Pacman extends Thing {
                 //add point
             }
             y += 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
+            {
+                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                if (a == YES_OPTION) {
+                    System.out.println("yes option");
+                }
+                else {
+                    System.out.println("no option");
+                    x=55;
+                    direction =2;
+                }
+            }
         }
 
         //D Right
-        if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL) {
+        if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL && x + 45< 705) {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) == Level.Cell.DOT) {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y), Level.Cell.SPACE);
                 //add point
             }
             x += 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
+            {
+                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                if (a == YES_OPTION) {
+                    System.out.println("yes option");
+                }
+                else {
+                    System.out.println("no option");
+                    x=55;
+                    direction =2;
+                }
+            }
+
         }
 
         //A left
@@ -56,6 +93,18 @@ public class Pacman extends Thing {
                 //add point
             }
             x -= 5;
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
+            {
+                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                if (a == YES_OPTION) {
+                    System.out.println("yes option");
+                }
+                else {
+                    System.out.println("no option");
+                    x=55;
+                    direction =2;
+                }
+            }
         }
     }
 
