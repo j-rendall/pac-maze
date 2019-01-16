@@ -129,6 +129,9 @@ public class Level {
         Font stringFont1 = new Font( "Arial", Font.PLAIN, 20 );
         String menu = "MENU";
         String exit = "EXIT";
+        Font stringFont2 = new Font( "Arial", Font.PLAIN, 40 );
+        String score = "Score: " + App.score;
+        String highscore = "Highscore: " + App.highscore;
 
         g2d.setColor(Color.decode("#0000ff"));
         g2d.fillRect(0,0,5000, 5000);
@@ -143,6 +146,10 @@ public class Level {
         g2d.setFont(stringFont1);
         g2d.drawString(menu, 29, 40);
         g2d.drawString(exit, 34, 80);
+        g2d.setColor(Color.WHITE);
+        g2d.setFont(stringFont2);
+        g2d.drawString(score, 125, 50);
+        g2d.drawString(highscore, 125, 90);
 
         for (Cell[] row: this.cells) {
             curX = cw;
@@ -183,5 +190,11 @@ public class Level {
         col = (cx - x) / width;
         row = (cy - y) / height;
         return new Point(row, col);
+    }
+
+    public Point getGhostPoint() {
+        for (int row = 0; row < cells.length; row++) for (int col = 0; col < cells[row].length; col++) if (cells[row][col] == Cell.GHOST) return new Point(row, col);
+        System.out.println("warning: no ghost spawn");
+        return new Point(1, 1);
     }
 }
