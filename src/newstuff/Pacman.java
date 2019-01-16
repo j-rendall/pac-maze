@@ -16,13 +16,11 @@ public class Pacman extends Thing {
     public boolean activity = false;
     public int lives = 5;
 
-
     public Pacman() {
     }
 
     @Override
     public void tick(Game gd) {
-
         //W Up
         if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y - 5)) != Level.Cell.WALL && y-5 >155){
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.DOT) {
@@ -41,15 +39,11 @@ public class Pacman extends Thing {
                     x=55;
                     direction =2;
                 }
-
             }
         }
-
         //S DOWN
-
         if ((direction == 3) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y+45 )) != Level.Cell.WALL)
         {
-            y += 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+40 )) == Level.Cell.DOT) {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + 40), Level.Cell.SPACE);
                 App.score += 1;
@@ -68,7 +62,6 @@ public class Pacman extends Thing {
                 }
             }
         }
-
         //D Right
         if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL && x + 45< 705) {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) == Level.Cell.DOT) {
