@@ -16,24 +16,26 @@ public class Ghost extends Thing {
         this.y = y;
     }
 
+
     @Override
     public void tick(Game gd) {
         //W UP
-        if ((direction==1) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y-ya )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y-5 )) != Level.Cell.WALL)
-        { y -= ya; }
-        else direction = (int) (Math.random()*4)+1;
+        if ((direction == 1) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - ya)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y - 5)) != Level.Cell.WALL) {
+            y -= ya;
+        } else direction = (int) (Math.random() * 4) + 1;
         //S DOWN
-        if ((direction==3) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+ya )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y+45 )) != Level.Cell.WALL)
-        { y += ya; }
-        else direction = (int) (Math.random()*5)+1;
+        if ((direction == 3) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + ya)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y + 45)) != Level.Cell.WALL) {
+            y += ya;
+        } else direction = (int) (Math.random() * 5) + 1;
         //D Right
-        if ((direction==2) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+xa, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+45, y+40 )) != Level.Cell.WALL)
-        { x += xa; }
-        else direction = (int) (Math.random()*4)+1;
+        if ((direction == 2) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + xa, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL) {
+            x += xa;
+        } else direction = (int) (Math.random() * 4) + 1;
         //A left
-        if ((direction==1) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-xa, y )) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x-5, y+40 )) != Level.Cell.WALL)
-        { x -= xa; }
-        else direction = (int) (Math.random()*4)+1;
+        if ((direction == 1) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - xa, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y + 40)) != Level.Cell.WALL) {
+            x -= xa;
+        } else direction = (int) (Math.random() * 4) + 1;
+
     }
 
     @Override
@@ -42,5 +44,14 @@ public class Ghost extends Thing {
     }
 
     @Override
-    public void check(Game gd, Thing other) { }
+    public void check(Game gd, Thing other) {
+        if (other instanceof Pacman) {
+            Pacman p = (Pacman) other;
+            if (p.x >= (this.x - 10) && p.x <= (this.x + 10) && p.y >= (this.y - 10) && p.y <= (this.y + 10)) {
+                p.lives--;
+                p.x = 705;
+                p.y = 665;
+            }
+        }
+    }
 }

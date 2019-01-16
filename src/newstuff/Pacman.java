@@ -14,6 +14,7 @@ public class Pacman extends Thing {
     public int y = 665;
     public int direction = 4;
     public boolean activity = false;
+    public int lives = 5;
 
 
     public Pacman() {
@@ -91,13 +92,14 @@ public class Pacman extends Thing {
 
         //A left
         if ((direction == 4) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y + 40)) != Level.Cell.WALL) {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 45, y)) == Level.Cell.DOT) {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x - 45, y), Level.Cell.SPACE);
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y)) == Level.Cell.DOT) {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y), Level.Cell.SPACE);
                 App.score += 1;
             }
             x -= 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
             {
+
                 int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
                     System.out.println("yes option");
@@ -109,6 +111,8 @@ public class Pacman extends Thing {
                 }
             }
         }
+
+
     }
 
     @Override
