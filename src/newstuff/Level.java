@@ -165,6 +165,16 @@ public class Level {
             }
             curY += ch;
         }
+
+        //draw exit sign
+        g2d.setFont(stringFont1);
+        g2d.setColor(Color.WHITE);
+        String nextlvl = " Next";
+        String nextlvl2 = " level";
+        String nextlvl3 = "<-----";
+        g2d.drawString(nextlvl,0,400);
+        g2d.drawString(nextlvl2,0,420);
+        g2d.drawString(nextlvl3,0,440);
     }
 
     // (x, y) is the place to start drawing the board
