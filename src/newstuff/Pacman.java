@@ -26,7 +26,7 @@ public class Pacman extends Thing {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y )) == Level.Cell.DOT)
             {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y ), Level.Cell.SPACE);
-                //add point
+                App.score += 1;
             }
         }
 
@@ -36,7 +36,7 @@ public class Pacman extends Thing {
             y += 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+40 )) == Level.Cell.DOT) {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + 40), Level.Cell.SPACE);
-                //add point
+                App.score += 1;
             }
         }
 
@@ -47,7 +47,7 @@ public class Pacman extends Thing {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y )) == Level.Cell.DOT)
             {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y ), Level.Cell.SPACE);
-                //add point
+                App.score += 1;
             }
         }
 
@@ -58,7 +58,7 @@ public class Pacman extends Thing {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y )) == Level.Cell.DOT)
             {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y ), Level.Cell.SPACE);
-                //add point
+                App.score += 1;
             }
         }
     }

@@ -11,8 +11,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Game extends AppView {
     private final java.util.List<Thing> things = new CopyOnWriteArrayList<>();
     public Level level;
-    public static int score = 0;
 
+    @SuppressWarnings("PointlessArithmeticExpression")
     public Game() {
         super();
         try {
@@ -21,6 +21,11 @@ public class Game extends AppView {
             throw new RuntimeException(ex);
         }
         this.addThing(new Pacman());
+        Level.Point ghostSpawn = this.level.getGhostPoint();
+        this.addThing(new Ghost(Resources.blinky, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
+        this.addThing(new Ghost(Resources.clyde, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
+        this.addThing(new Ghost(Resources.inky, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
+        this.addThing(new Ghost(Resources.pinky, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
     }
 
     public void addThing(Thing t) {
@@ -38,7 +43,7 @@ public class Game extends AppView {
     }
 
     public void highscore() {
-        if (App.highscore < score) {App.highscore = score;}
+        if (App.highscore < App.score) {App.highscore = App.score;}
     }
 
     public void paint(Graphics g2d) {
