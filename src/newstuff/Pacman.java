@@ -10,7 +10,7 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static javax.swing.JOptionPane.YES_OPTION;
 
 public class Pacman extends Thing {
-    public int x = 705;
+    public int x = 700;
     public int y = 665;
     public int direction = 4;
     public boolean activity = false;
