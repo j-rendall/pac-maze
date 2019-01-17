@@ -35,6 +35,7 @@ public class Pacman extends Thing {
                 int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
                     System.out.println("yes option");
+
                 }
                 else {
                     System.out.println("no option");
@@ -60,6 +61,7 @@ public class Pacman extends Thing {
                 int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
                     System.out.println("yes option");
+
                 }
                 else {
                     System.out.println("no option");

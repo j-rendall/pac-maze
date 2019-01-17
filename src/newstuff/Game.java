@@ -11,12 +11,17 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Game extends AppView {
     private final java.util.List<Thing> things = new CopyOnWriteArrayList<>();
     public Level level;
+    public int currentLevel = 1;
+
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
+    }
 
     @SuppressWarnings("PointlessArithmeticExpression")
     public Game() {
         super();
         try {
-            this.level = new Level(Game.class.getResourceAsStream("/level 1.txt"));
+            this.level = new Level(Game.class.getResourceAsStream("/level " + currentLevel +".txt"));
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
