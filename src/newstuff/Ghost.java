@@ -1,6 +1,10 @@
 package newstuff;
 
+import javax.swing.*;
 import java.awt.*;
+
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
 
 public class Ghost extends Thing {
     public int x;
@@ -75,6 +79,17 @@ public class Ghost extends Thing {
                 p.lives--;
                 p.x = 700;
                 p.y = 665;
+                if (p.lives == 0) {
+                    int a = JOptionPane.showConfirmDialog(gd, "You died. Would you like to restart?", "Question", YES_NO_OPTION);
+                    if (a == YES_OPTION) {
+                        System.out.println("yes option");
+                        //App.setCurrent(App.MainMenu);
+                        App.score =0;
+                    } else {
+                        System.out.println("no option");
+                        System.exit(10);
+                    }
+                }
             }
         }
     }

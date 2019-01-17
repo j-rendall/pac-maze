@@ -10,13 +10,18 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static javax.swing.JOptionPane.YES_OPTION;
 
 public class Pacman extends Thing {
-    public int x = 700;
-    public int y = 665;
+    public int x;
+    public int y;
     public int direction = 4;
     public boolean activity = false;
     public int lives = 5;
 
-    public Pacman() {
+    private final Image img;
+
+    public Pacman(Image img, int x, int y) {
+        this.img = img;
+        this.x = x;
+        this.y = y;
     }
 
     @Override
@@ -28,19 +33,6 @@ public class Pacman extends Thing {
                 App.score += 1;
             }
             y -= 5;
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
-            {
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
-                if (a == YES_OPTION) {
-                    System.out.println("yes option");
-
-                }
-                else {
-                    System.out.println("no option");
-                    x=55;
-                    direction =2;
-                }
-            }
         }
         //S DOWN
         if ((direction == 3) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y+45 )) != Level.Cell.WALL)
@@ -50,19 +42,6 @@ public class Pacman extends Thing {
                 App.score += 1;
             }
             y += 5;
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
-            {
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
-                if (a == YES_OPTION) {
-                    System.out.println("yes option");
-
-                }
-                else {
-                    System.out.println("no option");
-                    x=55;
-                    direction =2;
-                }
-            }
         }
         //D Right
         if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL && x + 45< 705) {
@@ -71,18 +50,6 @@ public class Pacman extends Thing {
                 App.score += 1;
             }
             x += 5;
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
-            {
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
-                if (a == YES_OPTION) {
-                    System.out.println("yes option");
-                }
-                else {
-                    System.out.println("no option");
-                    x=55;
-                    direction =2;
-                }
-            }
         }
 
         //A left
@@ -92,22 +59,21 @@ public class Pacman extends Thing {
                 App.score += 1;
             }
             x -= 5;
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
-            {
-
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
-                if (a == YES_OPTION) {
-                    System.out.println("yes option");
-                }
-                else {
-                    System.out.println("no option");
-                    x=55;
-                    direction =2;
-                }
-            }
         }
 
-
+        if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y)) == Level.Cell.EXIT)
+        {
+            int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+            if (a == YES_OPTION) {
+                System.out.println("yes option");
+                gd.setCurrentLevel(gd.getCurrentLevel()+1);
+            }
+            else {
+                System.out.println("no option");
+                x=55;
+                direction =2;
+            }
+        }
     }
 
     @Override

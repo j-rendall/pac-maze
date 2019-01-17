@@ -11,21 +11,28 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Game extends AppView {
     private final java.util.List<Thing> things = new CopyOnWriteArrayList<>();
     public Level level;
-    public int currentLevel = 1;
+    private int currentLevel = 1;
 
     public void setCurrentLevel(int currentLevel) {
         this.currentLevel = currentLevel;
+        this.reset();
     }
 
     @SuppressWarnings("PointlessArithmeticExpression")
     public Game() {
         super();
+        this.reset();
+    }
+
+    private void reset() {
         try {
             this.level = new Level(Game.class.getResourceAsStream("/level " + currentLevel +".txt"));
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
-        this.addThing(new Pacman());
+        things.clear();
+        Level.Point pacSpawn = this.level.getPacPoint();
+        this.addThing(new Pacman(Resources.pac4, 0+50*pacSpawn.col,110 + 50*pacSpawn.row + 5));
         Level.Point ghostSpawn = this.level.getGhostPoint();
         this.addThing(new Ghost(Resources.blinky, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
         this.addThing(new Ghost(Resources.clyde, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
@@ -71,5 +78,9 @@ public class Game extends AppView {
         else if (mouseEvent.getX() > 23 && mouseEvent.getX() < 90 && mouseEvent.getY() > 60 && mouseEvent.getY() < 85) {
             System.exit(20);
         }
+    }
+
+    public int getCurrentLevel() {
+        return currentLevel;
     }
 }
