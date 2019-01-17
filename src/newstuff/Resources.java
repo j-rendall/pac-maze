@@ -23,6 +23,7 @@ public class Resources {
     public static final Image pinky = loadImage("Pinky.png");
 
     public static final Sound peewee = new Sound("res\\peewee.wav");
+    public static final Sound death = new Sound("res\\death.wav");
 
     public static Image loadImage(String filename) {
         try {

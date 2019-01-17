@@ -30,13 +30,11 @@ public class Pacman extends Thing {
             y -= 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
             {
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                int a = JOptionPane.showConfirmDialog(gd, "Do you want to move on to next level?", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
-                    System.out.println("yes option");
 
                 }
                 else {
-                    System.out.println("no option");
                     x=55;
                     direction =2;
                 }
@@ -52,13 +50,11 @@ public class Pacman extends Thing {
             y += 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
             {
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                int a = JOptionPane.showConfirmDialog(gd, "Do you want to move on to next level?", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
-                    System.out.println("yes option");
 
                 }
                 else {
-                    System.out.println("no option");
                     x=55;
                     direction =2;
                 }
@@ -73,12 +69,10 @@ public class Pacman extends Thing {
             x += 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
             {
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                int a = JOptionPane.showConfirmDialog(gd, "Do you want to move on to next level?", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
-                    System.out.println("yes option");
                 }
                 else {
-                    System.out.println("no option");
                     x=55;
                     direction =2;
                 }
@@ -95,12 +89,10 @@ public class Pacman extends Thing {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
             {
 
-                int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
+                int a = JOptionPane.showConfirmDialog(gd, "Do you want to move on to next level?", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
-                    System.out.println("yes option");
                 }
                 else {
-                    System.out.println("no option");
                     x=55;
                     direction =2;
                 }

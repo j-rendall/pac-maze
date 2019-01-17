@@ -23,7 +23,7 @@ public class Ghost extends Thing {
             if ((direction == 1) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 50)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y - 5)) != Level.Cell.WALL && x<700 && y>110) {
                 y -= ya;
             } else {
-                if (Math.random() > 0.5) {
+                if (Math.random() > 0.3) {
                     direction = 1;
                 } else {
                     direction = (int) (Math.random() * 4) + 1;
@@ -33,7 +33,7 @@ public class Ghost extends Thing {
             if ((direction == 3) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + 50)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y + 45)) != Level.Cell.WALL && x<700 && y>110) {
                 y += ya;
             } else {
-                if (Math.random() > 0.5) {
+                if (Math.random() > 0.3) {
                     direction = 3;
                 } else {
                     direction = (int) (Math.random() * 4) + 1;
@@ -43,7 +43,7 @@ public class Ghost extends Thing {
             if ((direction == 2) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 50, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL && x<700 && y>110) {
                 x += xa;
             } else {
-                if (Math.random() > 0.5) {
+                if (Math.random() > 0.3) {
                     direction = 2;
                 } else {
                     direction = (int) (Math.random() * 4) + 1;
@@ -53,7 +53,7 @@ public class Ghost extends Thing {
             if ((direction == 1) && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 50, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y + 40)) != Level.Cell.WALL && x<700 && y>110) {
                 x -= xa;
             } else {
-                if (Math.random() > 0.5) {
+                if (Math.random() > 0.3) {
                     direction = 4;
                 } else {
                     direction = (int) (Math.random() * 4) + 1;
@@ -73,6 +73,7 @@ public class Ghost extends Thing {
             Pacman p = (Pacman) other;
             if (p.x >= (this.x - 10) && p.x <= (this.x + 10) && p.y >= (this.y - 10) && p.y <= (this.y + 10)) {
                 p.lives--;
+                Resources.death.play();
                 p.x = 700;
                 p.y = 665;
             }
