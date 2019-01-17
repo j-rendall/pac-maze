@@ -73,7 +73,7 @@ public class Ghost extends Thing {
             Pacman p = (Pacman) other;
             if (p.x >= (this.x - 10) && p.x <= (this.x + 10) && p.y >= (this.y - 10) && p.y <= (this.y + 10)) {
                 p.lives--;
-                p.x = 705;
+                p.x = 700;
                 p.y = 665;
             }
         }

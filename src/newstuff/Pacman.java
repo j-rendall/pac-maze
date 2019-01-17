@@ -10,7 +10,7 @@ import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static javax.swing.JOptionPane.YES_OPTION;
 
 public class Pacman extends Thing {
-    public int x = 705;
+    public int x = 700;
     public int y = 665;
     public int direction = 4;
     public boolean activity = false;
@@ -33,6 +33,7 @@ public class Pacman extends Thing {
                 int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
                     System.out.println("yes option");
+
                 }
                 else {
                     System.out.println("no option");
@@ -54,6 +55,7 @@ public class Pacman extends Thing {
                 int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
                     System.out.println("yes option");
+
                 }
                 else {
                     System.out.println("no option");
