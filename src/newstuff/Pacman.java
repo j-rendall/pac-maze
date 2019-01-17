@@ -139,6 +139,9 @@ public class Pacman extends Thing {
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
         }
+        for (int i=0;i<lives; i++) {
+            g2d.drawImage(Resources.heart, (700-i*50), 70, 40, 40, null);
+        }
     }
 
 
