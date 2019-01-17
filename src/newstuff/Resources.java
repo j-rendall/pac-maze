@@ -10,6 +10,7 @@ import java.io.File;
 
 public class Resources {
     public static final Image logo = loadImage("pacmanlogo.png");
+    public static final Image heart = loadImage("heart.png");
     public static final Image settingsimg = loadImage("settings.jpg");
     public static final Image instructionsimg = loadImage("instructions.jpg");
     public static final Image pac1 = loadImage("pacman1.png");

@@ -14,14 +14,13 @@ public class Pacman extends Thing {
     public int y = 665;
     public int direction = 4;
     public boolean activity = false;
-
+    public int lives = 5;
 
     public Pacman() {
     }
 
     @Override
     public void tick(Game gd) {
-
         //W Up
         if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y - 5)) != Level.Cell.WALL && y-5 >155){
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.DOT) {
@@ -40,15 +39,11 @@ public class Pacman extends Thing {
                     x=55;
                     direction =2;
                 }
-
             }
         }
-
         //S DOWN
-
         if ((direction == 3) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y+45 )) != Level.Cell.WALL)
         {
-            y += 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+40 )) == Level.Cell.DOT) {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + 40), Level.Cell.SPACE);
                 App.score += 1;
@@ -67,7 +62,6 @@ public class Pacman extends Thing {
                 }
             }
         }
-
         //D Right
         if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL && x + 45< 705) {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) == Level.Cell.DOT) {
@@ -91,13 +85,14 @@ public class Pacman extends Thing {
 
         //A left
         if ((direction == 4) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y + 40)) != Level.Cell.WALL) {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 45, y)) == Level.Cell.DOT) {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x - 45, y), Level.Cell.SPACE);
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y)) == Level.Cell.DOT) {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y), Level.Cell.SPACE);
                 App.score += 1;
             }
             x -= 5;
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.EXIT)
             {
+
                 int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
                 if (a == YES_OPTION) {
                     System.out.println("yes option");
@@ -109,6 +104,8 @@ public class Pacman extends Thing {
                 }
             }
         }
+
+
     }
 
     @Override
@@ -141,6 +138,9 @@ public class Pacman extends Thing {
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
+        }
+        for (int i=0;i<lives; i++) {
+            g2d.drawImage(Resources.heart, (700-i*50), 70, 40, 40, null);
         }
     }
 
