@@ -32,7 +32,7 @@ public class Game extends AppView {
         }
         things.clear();
         Level.Point pacSpawn = this.level.getPacPoint();
-        this.addThing(new Pacman(Resources.pac4, 0+50*pacSpawn.col,110 + 50*pacSpawn.row + 5));
+        this.addThing(new Pacman(Resources.pac4, 0+50*pacSpawn.col + 10,110 + 50*pacSpawn.row + 10));
         Level.Point ghostSpawn = this.level.getGhostPoint();
         this.addThing(new Ghost(Resources.blinky, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
         this.addThing(new Ghost(Resources.clyde, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));

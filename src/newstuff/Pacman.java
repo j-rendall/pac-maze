@@ -27,7 +27,7 @@ public class Pacman extends Thing {
     @Override
     public void tick(Game gd) {
         //W Up
-        if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 40, y - 5)) != Level.Cell.WALL && y-5 >155){
+        if ((direction == 1) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 30, y - 5)) != Level.Cell.WALL && y-5 >155){
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5)) == Level.Cell.DOT) {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y - 5), Level.Cell.SPACE);
                 App.score += 1;
@@ -35,25 +35,25 @@ public class Pacman extends Thing {
             y -= 5;
         }
         //S DOWN
-        if ((direction == 3) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+45 )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+40, y+45 )) != Level.Cell.WALL)
+        if ((direction == 3) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+35 )) != Level.Cell.WALL  && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x+30, y+35 )) != Level.Cell.WALL)
         {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+40 )) == Level.Cell.DOT) {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + 40), Level.Cell.SPACE);
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x, y+30 )) == Level.Cell.DOT) {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x, y + 30), Level.Cell.SPACE);
                 App.score += 1;
             }
             y += 5;
         }
         //D Right
-        if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y + 40)) != Level.Cell.WALL && x + 45< 705) {
-            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y)) == Level.Cell.DOT) {
-                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x + 45, y), Level.Cell.SPACE);
+        if ((direction == 2) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 35, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 35, y + 30)) != Level.Cell.WALL && x + 35< 705) {
+            if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x + 35, y)) == Level.Cell.DOT) {
+                gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x + 35, y), Level.Cell.SPACE);
                 App.score += 1;
             }
             x += 5;
         }
 
         //A left
-        if ((direction == 4) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y + 40)) != Level.Cell.WALL) {
+        if ((direction == 4) && activity && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y)) != Level.Cell.WALL && gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y + 30)) != Level.Cell.WALL) {
             if (gd.level.getCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y)) == Level.Cell.DOT) {
                 gd.level.setCell(gd.level.getCellIndex(0, 110, 50, 50, x - 5, y), Level.Cell.SPACE);
                 App.score += 1;
@@ -79,28 +79,28 @@ public class Pacman extends Thing {
     @Override
     public void paint(Game gd, Graphics2D g2d) {
         if (direction == 1) {
-            g2d.drawImage(Resources.pac1, x, y, 40, 40, null);
+            g2d.drawImage(Resources.pac1, x, y, 30, 30, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
         } else if (direction == 2) {
-            g2d.drawImage(Resources.pac2, x, y, 40, 40, null);
+            g2d.drawImage(Resources.pac2, x, y, 30, 30, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
         } else if (direction == 3) {
-            g2d.drawImage(Resources.pac3, x, y, 40, 40, null);
+            g2d.drawImage(Resources.pac3, x, y, 30, 30, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
         } else if (direction == 4) {
-            g2d.drawImage(Resources.pac4, x, y, 40, 40, null);
+            g2d.drawImage(Resources.pac4, x, y, 30, 30, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
