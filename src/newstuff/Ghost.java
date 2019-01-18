@@ -80,7 +80,7 @@ public class Ghost extends Thing {
                 Resources.death.play();
                 Level.Point pacSpawn = gd.level.getPacPoint();
                 p.x = pacSpawn.col*50;
-                p.y = pacSpawn.row*50 + 110;
+                p.y = pacSpawn.row*50 + 120;
                 if (p.lives == 0) {
                     int a = JOptionPane.showConfirmDialog(gd, "You died. Would you like to restart?", "Question", YES_NO_OPTION);
                     if (a == YES_OPTION) {
