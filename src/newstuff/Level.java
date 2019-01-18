@@ -204,4 +204,10 @@ public class Level {
         System.out.println("warning: no Pac spawn");
         return new Point(1, 1);
     }
+
+//    public Point getExitPoint() {
+//        for (int row = 0; row < cells.length; row++) for (int col = 0; col < cells[row].length; col++) if (cells[row][col] == Cell.EXIT) return new Point(row, col);
+//        System.out.println("warning: no exit spawn");
+//        return new Point(1, 1);
+//    }
 }

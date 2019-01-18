@@ -13,7 +13,7 @@ public class Game extends AppView {
     public Level level;
     private int currentLevel = 1;
 
-    public void setCurrentLevel(int currentLevel) {
+    public void setCurrentLevel(int currentLevel ) {
         this.currentLevel = currentLevel;
         this.reset();
     }
@@ -38,6 +38,19 @@ public class Game extends AppView {
         this.addThing(new Ghost(Resources.clyde, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
         this.addThing(new Ghost(Resources.inky, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
         this.addThing(new Ghost(Resources.pinky, 0 + 50*ghostSpawn.col + 5, 110 + 50*ghostSpawn.row + 5));
+
+//        //draw exit sign
+//        Level.Point exitSpawn = this.level.getExitPoint();
+//        Font stringFont1 = new Font( "Arial", Font.PLAIN, 20 );
+//        g2d.setFont(stringFont1);
+//        g2d.setColor(Color.WHITE);
+//        String nextlvl = " Next";
+//        String nextlvl2 = " level";
+//        String nextlvl3 = "<";
+//        g2d.drawString(nextlvl,0+50*exitSpawn.col + 10,110 + 50*exitSpawn.row -100);
+//        g2d.drawString(nextlvl2,0+50*exitSpawn.col + 10,110 + 50*exitSpawn.row - 80);
+//        g2d.drawString(nextlvl3,0+50*exitSpawn.col + 10,110 + 50*exitSpawn.row - 60);
+//        g2d.drawLine(10, 432, 40,432);
     }
 
     public void addThing(Thing t) {
