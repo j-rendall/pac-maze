@@ -5,8 +5,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.io.File;
+import java.io.*;
 import java.util.concurrent.CopyOnWriteArrayList;
+
+import static newstuff.App.highscore;
 
 public class Game extends AppView {
     private final java.util.List<Thing> things = new CopyOnWriteArrayList<>();
@@ -68,7 +70,41 @@ public class Game extends AppView {
     }
 
     public void highscore() {
-        if (App.highscore < App.score) {App.highscore = App.score;}
+        if (App.highscore > 0) {
+            try {
+                FileWriter fw = new FileWriter("res\\scorekeep");
+                PrintWriter pw = new PrintWriter(fw);
+                pw.println(App.highscore);
+                pw.close();
+            } catch (IOException e) {
+                System.out.println("No Highscore File Found");
+            }
+        }
+        try
+        {
+            FileReader fr = new FileReader("res\\scorekeep");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while ((line=br.readLine()) != null)
+            {
+                int highscore = Integer.parseInt(line.trim());
+                App.highscore = highscore;
+            }
+            br.close();
+        }
+        catch(IOException e)
+        { System.out.println("No Highscore File Found"); }
+        if (highscore < App.score) {
+            highscore = App.score;}
+        try
+        {
+            FileWriter fw = new FileWriter("res\\scorekeep");
+            PrintWriter pw = new PrintWriter(fw);
+            pw.println(App.highscore);
+            pw.close();
+        }
+        catch(IOException e)
+        { System.out.println("No Highscore File Found"); }
     }
 
     public void paint(Graphics g2d) {
