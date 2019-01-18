@@ -12,7 +12,6 @@ public class Ghost extends Thing {
     public int xa = 50;
     public int ya = 50;
     public int direction = 3;
-    public Level level;
     private final Image img;
 
     public Ghost(Image img, int x, int y) {
@@ -79,7 +78,7 @@ public class Ghost extends Thing {
             if (p.x >= (this.x - 10) && p.x <= (this.x + 10) && p.y >= (this.y - 10) && p.y <= (this.y + 10)) {
                 p.lives--;
                 Resources.death.play();
-                Level.Point pacSpawn = this.level.getPacPoint();
+                Level.Point pacSpawn = gd.level.getPacPoint();
                 p.x = pacSpawn.col*50;
                 p.y = pacSpawn.row*50 + 140;
                 if (p.lives == 0) {

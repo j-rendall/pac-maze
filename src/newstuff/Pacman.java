@@ -79,28 +79,28 @@ public class Pacman extends Thing {
     @Override
     public void paint(Game gd, Graphics2D g2d) {
         if (direction == 1) {
-            g2d.drawImage(Resources.pac1, x, y, 30, 30, null);
+            g2d.drawImage(Resources.pac1, x, y, 40, 40, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
         } else if (direction == 2) {
-            g2d.drawImage(Resources.pac2, x, y, 30, 30, null);
+            g2d.drawImage(Resources.pac2, x, y, 40, 40, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
         } else if (direction == 3) {
-            g2d.drawImage(Resources.pac3, x, y, 30, 30, null);
+            g2d.drawImage(Resources.pac3, x, y, 40, 40, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
             g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
         } else if (direction == 4) {
-            g2d.drawImage(Resources.pac4, x, y, 30, 30, null);
+            g2d.drawImage(Resources.pac4, x, y, 40, 40, null);
 
             //move other images off screen
             g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
