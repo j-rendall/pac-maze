@@ -12,6 +12,7 @@ public class Ghost extends Thing {
     public int xa = 50;
     public int ya = 50;
     public int direction = 3;
+    public Level level;
     private final Image img;
 
     public Ghost(Image img, int x, int y) {
@@ -78,13 +79,14 @@ public class Ghost extends Thing {
             if (p.x >= (this.x - 10) && p.x <= (this.x + 10) && p.y >= (this.y - 10) && p.y <= (this.y + 10)) {
                 p.lives--;
                 Resources.death.play();
-                p.x = 700;
-                p.y = 665;
+                Level.Point pacSpawn = this.level.getPacPoint();
+                p.x = pacSpawn.col*50;
+                p.y = pacSpawn.row*50 + 140;
                 if (p.lives == 0) {
                     int a = JOptionPane.showConfirmDialog(gd, "You died. Would you like to restart?", "Question", YES_NO_OPTION);
                     if (a == YES_OPTION) {
                         System.out.println("yes option");
-                        //App.setCurrent(App.MainMenu);
+                        App.setCurrent(App.main);
                         App.score =0;
                     } else {
                         System.out.println("no option");
