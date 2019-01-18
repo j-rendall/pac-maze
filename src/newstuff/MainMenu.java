@@ -58,27 +58,18 @@ public class MainMenu extends AppView {
         g2d.drawString(highscore,40,810);
     }
 
-    public void tick() {
-
-    }
+    public void tick() { }
 
     public void mouseClicked(MouseEvent mouseEvent) {
         super.mouseClicked(mouseEvent);
         if (mouseEvent.getX() > 260 && mouseEvent.getX() < 460 && mouseEvent.getY() > 300 && mouseEvent.getY() < 475) {
-            App.setCurrent(App.game);
-        }
+            App.setCurrent(App.game); }
         else if (mouseEvent.getX() > 260 && mouseEvent.getX() < 460 && mouseEvent.getY() > 500 && mouseEvent.getY() < 550) {
-            App.setCurrent(App.instructions);
-        }
-//        else if (mouseEvent.getX() > 40 && mouseEvent.getX() < 280 && mouseEvent.getY() > 770 && mouseEvent.getY() < 810) {
-//            App.setCurrent(App.instructions);
-//        }
+            App.setCurrent(App.instructions); }
         else if (mouseEvent.getX() > 35 && mouseEvent.getX() < 135 && mouseEvent.getY() > 770 && mouseEvent.getY() < 820) {
-            App.highscore = 0;
-            System.out.println(App.highscore);
-        }
+            App.highscore = 1;
+            System.out.println(App.highscore); }
         else if (mouseEvent.getX() > 615 && mouseEvent.getX() < 705 && mouseEvent.getY() > 770 && mouseEvent.getY() < 810) {
-            System.exit(10);
-        }
+            System.exit(10); }
     }
 }

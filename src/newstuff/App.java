@@ -13,7 +13,7 @@ public class App {
     public static boolean music = true;
     public static boolean sound = true;
     public static int score = 0;
-    public static int highscore = 0;
+    public static int highscore;
 
     public static void setCurrent(AppView v) {
         App.current = v;
