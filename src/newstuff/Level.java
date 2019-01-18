@@ -172,10 +172,10 @@ public class Level {
         String nextlvl = " Next";
         String nextlvl2 = " level";
         String nextlvl3 = "<";
-        g2d.drawString(nextlvl,0,400);
-        g2d.drawString(nextlvl2,0,420);
-        g2d.drawString(nextlvl3,10,440);
-        g2d.drawLine(10, 432, 40,432);
+        g2d.drawString(nextlvl,0,127);
+        g2d.drawString(nextlvl2,0,145);
+        g2d.drawString(nextlvl3,10,160);
+        g2d.drawLine(10, 152, 40,152);
     }
 
     // (x, y) is the place to start drawing the board
