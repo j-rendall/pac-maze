@@ -33,7 +33,7 @@ public class App {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        Resources.peewee.playLoop();
+        //Resources.peewee.playLoop();
 
         current.grabFocus();
 
