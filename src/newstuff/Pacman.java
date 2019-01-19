@@ -66,7 +66,15 @@ public class Pacman extends Thing {
             int a = JOptionPane.showConfirmDialog(gd, "Would you like to continue to the next level or play on", "Question", YES_NO_OPTION);
             if (a == YES_OPTION) {
                 System.out.println("yes option");
-                gd.setCurrentLevel(gd.getCurrentLevel()+1);
+                if (gd.getCurrentLevel() < 10) {
+                    gd.setCurrentLevel(gd.getCurrentLevel()+1);
+                }
+                else {
+                    JOptionPane.showMessageDialog(gd, "Congratulation! You completed all 10 levels!", "You Did It!", JOptionPane.INFORMATION_MESSAGE);
+                    App.score = 0;
+                    gd.setCurrentLevel(1);
+                    App.setCurrent(App.main);
+                }
             }
             else {
                 System.out.println("no option");
@@ -79,33 +87,32 @@ public class Pacman extends Thing {
     @Override
     public void paint(Game gd, Graphics2D g2d) {
         if (direction == 1) {
-            g2d.drawImage(Resources.pac1, x, y, 40, 40, null);
+            g2d.drawImage(Resources.pac1, x, y, 30, 30, null);
 
             //move other images off screen
-            g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
+            g2d.drawImage(Resources.pac2, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac3, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac4, 10000, 10000, 30, 30, null);
         } else if (direction == 2) {
-            g2d.drawImage(Resources.pac2, x, y, 40, 40, null);
+            g2d.drawImage(Resources.pac2, x, y, 30, 30, null);
 
             //move other images off screen
-            g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
+            g2d.drawImage(Resources.pac1, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac3, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac4, 10000, 10000, 30, 30, null);
         } else if (direction == 3) {
-            g2d.drawImage(Resources.pac3, x, y, 40, 40, null);
-
+            g2d.drawImage(Resources.pac3, x, y, 30, 30, null);
             //move other images off screen
-            g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac4, 10000, 10000, 40, 40, null);
+            g2d.drawImage(Resources.pac1, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac2, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac4, 10000, 10000, 30, 30, null);
         } else if (direction == 4) {
-            g2d.drawImage(Resources.pac4, x, y, 40, 40, null);
+            g2d.drawImage(Resources.pac4, x, y, 30, 30, null);
 
             //move other images off screen
-            g2d.drawImage(Resources.pac1, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac2, 10000, 10000, 40, 40, null);
-            g2d.drawImage(Resources.pac3, 10000, 10000, 40, 40, null);
+            g2d.drawImage(Resources.pac1, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac2, 10000, 10000, 30, 30, null);
+            g2d.drawImage(Resources.pac3, 10000, 10000, 30, 30, null);
         }
         for (int i=0;i<lives; i++) {
             g2d.drawImage(Resources.heart, (700-i*50), 70, 40, 40, null);
