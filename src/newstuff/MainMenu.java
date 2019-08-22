@@ -2,6 +2,9 @@ package newstuff;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class MainMenu extends AppView {
     public MainMenu() {
@@ -67,7 +70,15 @@ public class MainMenu extends AppView {
         else if (mouseEvent.getX() > 260 && mouseEvent.getX() < 460 && mouseEvent.getY() > 500 && mouseEvent.getY() < 550) {
             App.setCurrent(App.instructions); }
         else if (mouseEvent.getX() > 35 && mouseEvent.getX() < 135 && mouseEvent.getY() > 770 && mouseEvent.getY() < 820) {
-            App.highscore = 1;
+            App.highscore = 0;
+            try {
+                FileWriter fw = new FileWriter("res\\scorekeep");
+                PrintWriter pw = new PrintWriter(fw);
+                pw.println(App.highscore);
+                pw.close();
+            } catch (IOException e) {
+                System.out.println("No Highscore File Found");
+            }
             System.out.println(App.highscore); }
         else if (mouseEvent.getX() > 615 && mouseEvent.getX() < 705 && mouseEvent.getY() > 770 && mouseEvent.getY() < 810) {
             System.exit(10); }
